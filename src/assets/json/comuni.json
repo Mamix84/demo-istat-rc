@@ -1,0 +1,392 @@
+{
+	"listaComuni": [
+		{
+			"codice": "AFR01",
+			"denominazione": "Africo"
+		},
+		{
+			"codice": "AGN02",
+			"denominazione": "Agnana Calabra"
+		},
+		{
+			"codice": "ANO03",
+			"denominazione": "Anoia"
+		},
+		{
+			"codice": "ANT04",
+			"denominazione": "Antonimina"
+		},
+		{
+			"codice": "ARD05",
+			"denominazione": "Ardore"
+		},
+		{
+			"codice": "BAG06",
+			"denominazione": "Bagaladi"
+		},
+		{
+			"codice": "BAG07",
+			"denominazione": "Bagnara Calabra"
+		},
+		{
+			"codice": "BEN08",
+			"denominazione": "Benestare"
+		},
+		{
+			"codice": "BIA09",
+			"denominazione": "Bianco"
+		},
+		{
+			"codice": "BIV10",
+			"denominazione": "Bivongi"
+		},
+		{
+			"codice": "BOV11",
+			"denominazione": "Bova"
+		},
+		{
+			"codice": "BOV12",
+			"denominazione": "Bova Marina"
+		},
+		{
+			"codice": "BOV13",
+			"denominazione": "Bovalino"
+		},
+		{
+			"codice": "BRA14",
+			"denominazione": "Brancaleone"
+		},
+		{
+			"codice": "BRU15",
+			"denominazione": "Bruzzano Zeffirio"
+		},
+		{
+			"codice": "CAL16",
+			"denominazione": "Calanna"
+		},
+		{
+			"codice": "CAM17",
+			"denominazione": "Camini"
+		},
+		{
+			"codice": "CAM18",
+			"denominazione": "Campo Calabro"
+		},
+		{
+			"codice": "CAN19",
+			"denominazione": "Candidoni"
+		},
+		{
+			"codice": "CAN20",
+			"denominazione": "Canolo"
+		},
+		{
+			"codice": "CAR21",
+			"denominazione": "Caraffa del Bianco"
+		},
+		{
+			"codice": "CAR22",
+			"denominazione": "Cardeto"
+		},
+		{
+			"codice": "CAR23",
+			"denominazione": "Careri"
+		},
+		{
+			"codice": "CAS24",
+			"denominazione": "Casignana"
+		},
+		{
+			"codice": "CAU25",
+			"denominazione": "Caulonia"
+		},
+		{
+			"codice": "CIM26",
+			"denominazione": "Ciminà"
+		},
+		{
+			"codice": "CIN27",
+			"denominazione": "Cinquefrondi"
+		},
+		{
+			"codice": "CIT28",
+			"denominazione": "Cittanova"
+		},
+		{
+			"codice": "CON29",
+			"denominazione": "Condofuri"
+		},
+		{
+			"codice": "COS30",
+			"denominazione": "Cosoleto"
+		},
+		{
+			"codice": "DEL31",
+			"denominazione": "Delianuova"
+		},
+		{
+			"codice": "FER32",
+			"denominazione": "Feroleto della Chiesa"
+		},
+		{
+			"codice": "FER33",
+			"denominazione": "Ferruzzano"
+		},
+		{
+			"codice": "FIU34",
+			"denominazione": "Fiumara"
+		},
+		{
+			"codice": "GAL35",
+			"denominazione": "Galatro"
+		},
+		{
+			"codice": "GER36",
+			"denominazione": "Gerace"
+		},
+		{
+			"codice": "GIF37",
+			"denominazione": "Giffone"
+		},
+		{
+			"codice": "GIO38",
+			"denominazione": "Gioia Tauro"
+		},
+		{
+			"codice": "GIO39",
+			"denominazione": "Gioiosa Ionica"
+		},
+		{
+			"codice": "GRO40",
+			"denominazione": "Grotteria"
+		},
+		{
+			"codice": "LAG41",
+			"denominazione": "Laganadi"
+		},
+		{
+			"codice": "LAU42",
+			"denominazione": "Laureana di Borrello"
+		},
+		{
+			"codice": "LOC43",
+			"denominazione": "Locri"
+		},
+		{
+			"codice": "MAM44",
+			"denominazione": "Mammola"
+		},
+		{
+			"codice": "MAR45",
+			"denominazione": "Marina di Gioiosa Ionica"
+		},
+		{
+			"codice": "MAR46",
+			"denominazione": "Maropati"
+		},
+		{
+			"codice": "MAR47",
+			"denominazione": "Martone"
+		},
+		{
+			"codice": "MEL48",
+			"denominazione": "Melicucco"
+		},
+		{
+			"codice": "MEL49",
+			"denominazione": "Melicuccà"
+		},
+		{
+			"codice": "MEL50",
+			"denominazione": "Melito di Porto Salvo"
+		},
+		{
+			"codice": "MOL51",
+			"denominazione": "Molochio"
+		},
+		{
+			"codice": "MON52",
+			"denominazione": "Monasterace"
+		},
+		{
+			"codice": "MON53",
+			"denominazione": "Montebello Ionico"
+		},
+		{
+			"codice": "MOT54",
+			"denominazione": "Motta San Giovanni"
+		},
+		{
+			"codice": "OPP55",
+			"denominazione": "Oppido Mamertina"
+		},
+		{
+			"codice": "PAL56",
+			"denominazione": "Palizzi"
+		},
+		{
+			"codice": "PAL57",
+			"denominazione": "Palmi"
+		},
+		{
+			"codice": "PAZ58",
+			"denominazione": "Pazzano"
+		},
+		{
+			"codice": "PLA59",
+			"denominazione": "Placanica"
+		},
+		{
+			"codice": "PLA60",
+			"denominazione": "Platì"
+		},
+		{
+			"codice": "POL61",
+			"denominazione": "Polistena"
+		},
+		{
+			"codice": "POR62",
+			"denominazione": "Portigliola"
+		},
+		{
+			"codice": "REG63",
+			"denominazione": "Reggio di Calabria"
+		},
+		{
+			"codice": "RIA64",
+			"denominazione": "Riace"
+		},
+		{
+			"codice": "RIZ65",
+			"denominazione": "Rizziconi"
+		},
+		{
+			"codice": "ROC66",
+			"denominazione": "Roccaforte del Greco"
+		},
+		{
+			"codice": "ROC67",
+			"denominazione": "Roccella Ionica"
+		},
+		{
+			"codice": "ROG68",
+			"denominazione": "Roghudi"
+		},
+		{
+			"codice": "ROS69",
+			"denominazione": "Rosarno"
+		},
+		{
+			"codice": "SAM70",
+			"denominazione": "Samo"
+		},
+		{
+			"codice": "SAN71",
+			"denominazione": "San Ferdinando"
+		},
+		{
+			"codice": "SAN72",
+			"denominazione": "San Giorgio Morgeto"
+		},
+		{
+			"codice": "SAN73",
+			"denominazione": "San Giovanni di Gerace"
+		},
+		{
+			"codice": "SAN74",
+			"denominazione": "San Lorenzo"
+		},
+		{
+			"codice": "SAN75",
+			"denominazione": "San Luca"
+		},
+		{
+			"codice": "SAN76",
+			"denominazione": "San Pietro di Caridà"
+		},
+		{
+			"codice": "SAN77",
+			"denominazione": "San Procopio"
+		},
+		{
+			"codice": "SAN78",
+			"denominazione": "San Roberto"
+		},
+		{
+			"codice": "SAN79",
+			"denominazione": "Sant'Agata del Bianco"
+		},
+		{
+			"codice": "SAN80",
+			"denominazione": "Sant'Alessio in Aspromonte"
+		},
+		{
+			"codice": "SAN81",
+			"denominazione": "Sant'Eufemia d'Aspromonte"
+		},
+		{
+			"codice": "SAN82",
+			"denominazione": "Sant'Ilario dello Ionio"
+		},
+		{
+			"codice": "SAN83",
+			"denominazione": "Santa Cristina d'Aspromonte"
+		},
+		{
+			"codice": "SAN84",
+			"denominazione": "Santo Stefano in Aspromonte"
+		},
+		{
+			"codice": "SCI85",
+			"denominazione": "Scido"
+		},
+		{
+			"codice": "SCI86",
+			"denominazione": "Scilla"
+		},
+		{
+			"codice": "SEM87",
+			"denominazione": "Seminara"
+		},
+		{
+			"codice": "SER88",
+			"denominazione": "Serrata"
+		},
+		{
+			"codice": "SID89",
+			"denominazione": "Siderno"
+		},
+		{
+			"codice": "SIN90",
+			"denominazione": "Sinopoli"
+		},
+		{
+			"codice": "STA91",
+			"denominazione": "Staiti"
+		},
+		{
+			"codice": "STI92",
+			"denominazione": "Stignano"
+		},
+		{
+			"codice": "STI93",
+			"denominazione": "Stilo"
+		},
+		{
+			"codice": "TAU94",
+			"denominazione": "Taurianova"
+		},
+		{
+			"codice": "TER95",
+			"denominazione": "Terranova Sappo Minulio"
+		},
+		{
+			"codice": "VAR96",
+			"denominazione": "Varapodio"
+		},
+		{
+			"codice": "VIL97",
+			"denominazione": "Villa San Giovanni"
+		}
+	]
+}
