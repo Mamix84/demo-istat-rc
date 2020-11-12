@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+$grey: rgb(185, 185, 185);
+$white: rgb(255, 255, 255);
+$black: rgb(0, 0, 0);
+
+body {
+    font-family: "Arial", Times, serif;
+  }
+
+  .main {
+      width: 100%;
+  }
+
+  h1{
+    color: $black;
+    margin: 0;
+  }
+
+  h2{
+    color: $black;
+    margin: 0;
+  }
+
+  h3{
+    color: $black;
+    margin: 0;
+  }
+
+  h4{
+    color: $black;
+    margin: 0;
+  }
+
+  h5{
+    color: $black;
+    margin: 0;
+  }
+
+  .header {
+    bottom: 0;
+    width: 100%;
+    background-color: $grey;
+    color: white;
+    text-align: left;
+    font-size:0.8em;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $grey;
+    color: white;
+    text-align: center;
+    font-size:0.8em;
+  }
+
+  .main{
+    width: 100%;
+  }

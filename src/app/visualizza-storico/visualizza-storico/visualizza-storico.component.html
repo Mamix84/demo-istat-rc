@@ -1,1 +1,5 @@
-<div class="p-grid"></div>
+<div class="p-grid">
+  <h5>SELEZIONA COMUNE</h5>
+  <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="Seleziona un comune" optionLabel="name"
+    [showClear]="true"></p-dropdown>
+</div>

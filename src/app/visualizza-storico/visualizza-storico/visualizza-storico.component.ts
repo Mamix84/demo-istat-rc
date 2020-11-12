@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Comune } from 'src/app/model/comune';
 
 @Component({
   selector: 'app-visualizza-storico',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visualizza-storico.component.scss']
 })
 export class VisualizzaStoricoComponent implements OnInit {
+
+  comuneSelezionato: Comune;
+  comuni = [];
 
   constructor() { }
 
