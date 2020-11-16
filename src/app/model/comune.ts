@@ -1,8 +1,6 @@
 import { DatoStatistico } from './dati-statistici';
-
-export interface Comune{
+export class Comune{
   codice: string;
   denominazione: string;
-  dati: DatoStatistico;
-
+  dati: DatoStatistico[];
 }

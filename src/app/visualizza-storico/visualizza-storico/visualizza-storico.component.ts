@@ -11,22 +11,35 @@ import { ComuniService } from 'src/app/services/comuni.service';
 export class VisualizzaStoricoComponent implements OnInit {
   comuneSelezionato: string;
   comuni: SelectItem[];
+  storicoComune: Comune;
 
   constructor(private comuniService: ComuniService) {
     this.comuni = [];
+    this.storicoComune = new Comune();
+    this.storicoComune.dati = [];
   }
 
   ngOnInit(): void {
-    this.comuniService.getCountries().then((data) => {
+    this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
 
       for (let i = 0; i < response.listaComuni.length; i++) {
         let comuneTemp: Comune = response.listaComuni[i];
         this.comuni.push({
           value: comuneTemp.codice,
-          label: comuneTemp.denominazione
+          label: comuneTemp.denominazione,
         });
       }
     });
+  }
+
+  caricaStoricoComune() {
+    this.comuniService
+      .caricaStoricoComune(this.comuneSelezionato)
+      .then((data) => {
+        let response: any = data;
+        this.storicoComune = response;
+        console.log(this.storicoComune);
+      });
   }
 }

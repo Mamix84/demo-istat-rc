@@ -10,10 +10,17 @@ export class ComuniService {
 
   constructor(private http: HttpClient) {}
 
-  getCountries() {
+  caricaListaComuni() {
      return this.http.get('assets/json/comuni.json')
                   .toPromise()
                   .then(res => <any[]> res.valueOf())
                   .then(data => { return data; });
   }
+
+  caricaStoricoComune(codiceComune: string ) {
+    return this.http.get('assets/json/'+codiceComune+'.json')
+                 .toPromise()
+                 .then(res => <any[]> res.valueOf())
+                 .then(data => { return data; });
+ }
 }

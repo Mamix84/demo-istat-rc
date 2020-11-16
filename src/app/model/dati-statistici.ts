@@ -1,6 +1,6 @@
-export interface DatoStatistico{
-  eta:number;
-  maschi: number;
-  femmine: number;
-  totale: number;
+export class DatoStatistico{
+  anno: number;
+  maschi: number[];
+  femmine: number[];
+  totale: number[];
 }
