@@ -12,6 +12,7 @@ export class VisualizzaStoricoComponent implements OnInit {
   comuneSelezionato: string;
   comuni: SelectItem[];
   storicoComune: Comune;
+  frozenCols: any[];
 
   constructor(private comuniService: ComuniService) {
     this.comuni = [];
@@ -31,6 +32,10 @@ export class VisualizzaStoricoComponent implements OnInit {
         });
       }
     });
+
+    this.frozenCols = [
+      { field: 'comune.anno', header: 'ANNO' }
+  ];
   }
 
   caricaStoricoComune() {
