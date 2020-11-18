@@ -1,4 +1,4 @@
-:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+/* :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
   position: -webkit-sticky;
   position: sticky;
   top: 69px;
@@ -8,4 +8,16 @@
   :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
       top: 99px;
   }
+} */
+
+th {
+  text-align: center !important;
+  width: 5rem;
+  padding: 0rem 0rem !important;
+}
+
+td {
+  text-align: center !important;
+  width: 5rem;
+  padding: 0rem 0rem !important;
 }

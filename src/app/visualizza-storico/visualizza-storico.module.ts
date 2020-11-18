@@ -4,10 +4,11 @@ import { VisualizzaStoricoComponent } from './visualizza-storico/visualizza-stor
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import {TableModule} from 'primeng/table';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [VisualizzaStoricoComponent],
-  imports: [CommonModule, FormsModule, DropdownModule, TableModule],
+  imports: [CommonModule, FormsModule, DropdownModule, TableModule, ScrollPanelModule],
   exports: [VisualizzaStoricoComponent],
 })
 export class VisualizzaStoricoModule {}
