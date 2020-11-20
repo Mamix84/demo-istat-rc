@@ -1,15 +1,31 @@
 <div class="p-grid">
   <div class="p-col">
     <h4>SELEZIONA COMUNE</h4>
-  </div>
-</div>
-<div class="p-grid">
-  <div class="p-col">
     <p-dropdown
       [options]="comuni"
       [(ngModel)]="comuneSelezionato"
-      placeholder="Seleziona un comune"
+      placeholder="Seleziona un anno"
       [filter]="true"
+      (onChange)="caricaStoricoComune()"
+    ></p-dropdown>
+  </div>
+  <div class="p-col">
+    <h4>SELEZIONA ANNO</h4>
+    <p-dropdown
+      [options]="anni"
+      [(ngModel)]="annoSelezionato"
+      placeholder="Seleziona anno di riferimento"
+      [filter]="true"
+      (onChange)="caricaStoricoComune()"
+    ></p-dropdown>
+  </div>
+  <div class="p-col">
+    <h4>SELEZIONA SESSO</h4>
+    <p-dropdown
+      [options]="sessi"
+      [(ngModel)]="sessoSelezionato"
+      placeholder="Seleziona sesso"
+      [filter]="false"
       (onChange)="caricaStoricoComune()"
     ></p-dropdown>
   </div>

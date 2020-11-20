@@ -14,13 +14,22 @@ export class VisualizzaStoricoComponent implements OnInit {
   storicoComune: Comune;
   frozenCols: any[];
 
+  annoSelezionato: string;
+  anni: SelectItem[];
+
+  sessoSelezionato: string;
+  sessi: SelectItem[];
+
   constructor(private comuniService: ComuniService) {
     this.comuni = [];
     this.storicoComune = new Comune();
     this.storicoComune.dati = [];
+    this.anni = [];
+    this.sessi = [];
   }
 
   ngOnInit(): void {
+    // COMUNI
     this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
 
@@ -33,9 +42,18 @@ export class VisualizzaStoricoComponent implements OnInit {
       }
     });
 
-    this.frozenCols = [
-      { field: 'comune.anno', header: 'ANNO' }
-  ];
+    this.frozenCols = [{ field: 'comune.anno', header: 'ANNO' }];
+
+    // ANNI
+    this.anni.push({ label: 'Nessun filtro', value: '' });
+    for (let i = 1982; i < 2021; i++) {
+      this.anni.push({ label: i + '', value: i + '' });
+    }
+
+    //SESSI
+    this.sessi.push({ value: 'M', label: 'MASCHI' });
+    this.sessi.push({ value: 'F', label: 'FEMMINE' });
+    this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });
   }
 
   caricaStoricoComune() {
@@ -43,8 +61,26 @@ export class VisualizzaStoricoComponent implements OnInit {
       .caricaStoricoComune(this.comuneSelezionato)
       .then((data) => {
         let response: any = data;
-        this.storicoComune = response;
-        console.log(this.storicoComune);
+        let storicoComuneTemp: Comune = response;
+
+        this.storicoComune.codice = storicoComuneTemp.codice;
+        this.storicoComune.denominazione = this.storicoComune.denominazione;
+        this.storicoComune.dati = [];
+
+        for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
+          if (
+            this.annoSelezionato === undefined ||
+            this.annoSelezionato === ''
+          ) {
+            this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
+          }
+          if (
+            storicoComuneTemp.dati[i].anno.toString() == this.annoSelezionato &&
+            storicoComuneTemp.dati[i].tipo == this.sessoSelezionato
+          ) {
+            this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
+          }
+        }
       });
   }
 }

@@ -38,7 +38,7 @@ body {
   }
 
   .header {
-    position: fixed;
+
     width: 100%;
     background-color: $grey;
     color: white;
@@ -57,5 +57,9 @@ body {
   }
 
   .main{
+    width: 100%;
+  }
+
+  .p-dropdown{
     width: 100%;
   }
