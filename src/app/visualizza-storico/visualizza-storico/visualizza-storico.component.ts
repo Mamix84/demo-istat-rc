@@ -32,7 +32,7 @@ export class VisualizzaStoricoComponent implements OnInit {
     // COMUNI
     this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
-
+      this.comuni.push({ label: 'Nessun filtro', value: undefined });
       for (let i = 0; i < response.listaComuni.length; i++) {
         let comuneTemp: Comune = response.listaComuni[i];
         this.comuni.push({
@@ -45,12 +45,13 @@ export class VisualizzaStoricoComponent implements OnInit {
     this.frozenCols = [{ field: 'comune.anno', header: 'ANNO' }];
 
     // ANNI
-    this.anni.push({ label: 'Nessun filtro', value: '' });
+    this.anni.push({ label: 'Nessun filtro', value: undefined });
     for (let i = 1982; i < 2021; i++) {
       this.anni.push({ label: i + '', value: i + '' });
     }
 
     //SESSI
+    this.sessi.push({ label: 'Nessun filtro', value: undefined });
     this.sessi.push({ value: 'M', label: 'MASCHI' });
     this.sessi.push({ value: 'F', label: 'FEMMINE' });
     this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });
@@ -76,7 +77,7 @@ export class VisualizzaStoricoComponent implements OnInit {
           }
           if (
             storicoComuneTemp.dati[i].anno.toString() == this.annoSelezionato &&
-            storicoComuneTemp.dati[i].tipo == this.sessoSelezionato
+            (storicoComuneTemp.dati[i].tipo == this.sessoSelezionato || this.sessoSelezionato === undefined)
           ) {
             this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
           }
