@@ -10,6 +10,7 @@ import { VisualizzaStoricoModule } from './visualizza-storico/visualizza-storico
 import { AggiornaStoricoModule } from './aggiorna-storico/aggiorna-storico.module';
 import { StatisticheModule } from './statistiche/statistiche.module';
 import { GraficiModule } from './grafici/grafici.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GraficiModule } from './grafici/grafici.module';
     VisualizzaStoricoModule,
     AggiornaStoricoModule,
     StatisticheModule,
-    GraficiModule
+    GraficiModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

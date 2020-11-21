@@ -1,6 +1,42 @@
 <div class="p-grid">
-  <div class="p-col"><a href="/visualizza-storico">Visualizza Storico</a></div>
-  <div class="p-col"><a href="/aggiorna-storico">Aggiorna Storico</a></div>
-  <div class="p-col"><a href="/grafici">Grafici</a></div>
-  <div class="p-col"><a href="/Statistiche">Statistiche</a></div>
+  <div class="p-col">
+    <button
+      pButton
+      type="button"
+      label="Visualizza Storico"
+      icon="pi pi-table"
+      class="p-button-lg"
+      (click)="handleClick($event)"
+    ></button>
+  </div>
+  <div class="p-col">
+    <button
+      pButton
+      type="button"
+      label="Statistiche"
+      icon="pi pi-list"
+      class="p-button-lg"
+      (click)="handleClick($event)"
+    ></button>
+  </div>
+  <div class="p-col">
+    <button
+      pButton
+      type="button"
+      label="Grafici"
+      icon="pi pi-chart-line"
+      class="p-button-lg"
+      (click)="handleClick($event)"
+    ></button>
+  </div>
+  <div class="p-col">
+    <button
+      pButton
+      type="button"
+      label="Aggiorna Storico"
+      icon="pi pi-pencil"
+      class="p-button-lg"
+      (click)="handleClick($event)"
+    ></button>
+  </div>
 </div>

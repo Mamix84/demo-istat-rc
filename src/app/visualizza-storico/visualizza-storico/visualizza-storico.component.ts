@@ -70,14 +70,22 @@ export class VisualizzaStoricoComponent implements OnInit {
 
         for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
           if (
-            this.annoSelezionato === undefined ||
-            this.annoSelezionato === ''
+            (this.annoSelezionato === undefined ||
+              this.annoSelezionato === '') &&
+            (this.sessoSelezionato === undefined ||
+              this.sessoSelezionato === '')
           ) {
             this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
           }
           if (
-            storicoComuneTemp.dati[i].anno.toString() == this.annoSelezionato &&
-            (storicoComuneTemp.dati[i].tipo == this.sessoSelezionato || this.sessoSelezionato === undefined)
+            (storicoComuneTemp.dati[i].anno.toString() ==
+              this.annoSelezionato &&
+              (storicoComuneTemp.dati[i].tipo == this.sessoSelezionato ||
+                this.sessoSelezionato === undefined)) ||
+            (storicoComuneTemp.dati[i].tipo == this.sessoSelezionato &&
+              (storicoComuneTemp.dati[i].anno.toString() ==
+                this.annoSelezionato ||
+                this.annoSelezionato === undefined))
           ) {
             this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
           }
