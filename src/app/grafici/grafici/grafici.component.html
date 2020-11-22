@@ -1,1 +1,28 @@
-<p>grafici works!</p>
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <h4>SELEZIONA COMUNE</h4>
+          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="Seleziona un comune"
+            [filter]="true" (onChange)="caricaStoricoComune()">
+          </p-dropdown>
+        </div>
+        <div class="p-col">
+          <h4>SELEZIONA SESSO</h4>
+          <p-multiSelect [options]="sessi" [(ngModel)]="sessiSelezionati" placeholder="Seleziona sesso"
+            (onChange)="caricaStoricoComune()" [disabled]="comuneSelezionato === undefined"></p-multiSelect>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="sessiSelezionati.length >0">
+  <div class="p-col">
+    <p-panel header="ANDAMENTO">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+      <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
+    </p-panel>
+  </div>
+</div>

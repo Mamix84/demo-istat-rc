@@ -6,7 +6,7 @@
       label="Visualizza Storico"
       icon="pi pi-table"
       class="p-button-lg"
-      (click)="handleClick($event)"
+      (click)="handleClick($event, 'visualizza-storico')"
     ></button>
   </div>
   <div class="p-col">
@@ -16,7 +16,7 @@
       label="Statistiche"
       icon="pi pi-list"
       class="p-button-lg"
-      (click)="handleClick($event)"
+      (click)="handleClick($event, 'statistiche')"
     ></button>
   </div>
   <div class="p-col">
@@ -26,7 +26,7 @@
       label="Grafici"
       icon="pi pi-chart-line"
       class="p-button-lg"
-      (click)="handleClick($event)"
+      (click)="handleClick($event, 'grafici')"
     ></button>
   </div>
   <div class="p-col">
@@ -36,7 +36,7 @@
       label="Aggiorna Storico"
       icon="pi pi-pencil"
       class="p-button-lg"
-      (click)="handleClick($event)"
+      (click)="handleClick($event, 'aggiorna-storico')"
     ></button>
   </div>
 </div>

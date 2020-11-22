@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleClick(event: Event){
-    this.router.navigateByUrl('visualizza-storico');
+  handleClick(event: Event, action: string){
+    this.router.navigateByUrl(action);
 
   }
 
