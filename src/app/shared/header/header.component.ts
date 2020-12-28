@@ -32,6 +32,10 @@ export class HeaderComponent implements OnInit {
       label: 'AGGIORNA STORICO',
       icon: 'pi pi-pencil',
       routerLink: ['/aggiorna-storico']
+    },{
+      label: 'CONFRONTA COMUNI',
+      icon: 'pi pi-pencil',
+      routerLink: ['/confronta-comuni']
     },]
   }
 

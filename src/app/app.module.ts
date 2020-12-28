@@ -11,6 +11,7 @@ import { AggiornaStoricoModule } from './aggiorna-storico/aggiorna-storico.modul
 import { StatisticheModule } from './statistiche/statistiche.module';
 import { GraficiModule } from './grafici/grafici.module';
 import { HomeModule } from './home/home.module';
+import { ConfrontaComuniModule } from './confronta-comuni/confronta-comuni.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomeModule } from './home/home.module';
     AggiornaStoricoModule,
     StatisticheModule,
     GraficiModule,
-    HomeModule
+    HomeModule,
+    ConfrontaComuniModule
   ],
   providers: [],
   bootstrap: [AppComponent]
