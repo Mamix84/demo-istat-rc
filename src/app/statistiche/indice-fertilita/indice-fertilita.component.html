@@ -1,0 +1,20 @@
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="INDICE DI FERTILITA'">
+      <div class="p-grid">
+        <div class="p-col">
+          <p-toast [style]="{marginTop: '80px'}"></p-toast>
+          <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
+          <h3>INDICE DI FERTILITA' (anno {{this.annoInizio}}): {{this.primoAnno}}</h3>
+          <h3>INDICE DI FERTILITA' (anno {{this.annoFine}}): {{this.ultimoAnno}}</h3>
+          <h3>VARIAZIONE % (tra {{this.annoInizio}} e {{this.annoFine}}): {{this.variazionePercentuale}} %</h3>
+        </div>
+      </div>
+
+    </p-panel>
+  </div>
+</div>
