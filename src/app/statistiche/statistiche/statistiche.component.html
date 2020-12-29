@@ -15,12 +15,14 @@
 
 <div class="p-grid">
   <div class="p-col">
-    <p-panel header="STATISTICHE">
+    <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
         <div class="p-col">
           <app-indice-fertilita [comune]="storicoComune"></app-indice-fertilita>
         </div>
-        <div class="p-col"></div>
+        <div class="p-col">
+          <app-tasso-natalita [comune]="storicoComune"></app-tasso-natalita>
+        </div>
       </div>
     </p-panel>
   </div>

@@ -9,12 +9,12 @@ import { MessageService } from 'primeng/api';
 import { Comune } from 'src/app/model/comune';
 
 @Component({
-  selector: 'app-indice-fertilita',
-  templateUrl: './indice-fertilita.component.html',
-  styleUrls: ['./indice-fertilita.component.scss'],
+  selector: 'app-tasso-natalita',
+  templateUrl: './tasso-natalita.component.html',
+  styleUrls: ['./tasso-natalita.component.scss'],
   providers: [MessageService],
 })
-export class IndiceFertilitaComponent implements OnInit, OnChanges {
+export class TassoNatalitaComponent implements OnInit, OnChanges {
   @Input() comune: Comune;
   andamento: any;
   ultimoAnno: number;
@@ -31,7 +31,10 @@ export class IndiceFertilitaComponent implements OnInit, OnChanges {
     let labels: string[];
     labels = [];
     for (let i = 0; i < this.comune.dati.length; i++) {
-      if (this.comune.dati[i].tipo === 'MF') {
+      if (
+        this.comune.dati[i].tipo === 'MF' &&
+        this.comune.dati[i].anno > 1982
+      ) {
         labels.push(this.comune.dati[i].anno.toString());
       }
     }
@@ -40,14 +43,30 @@ export class IndiceFertilitaComponent implements OnInit, OnChanges {
 
     totali = [];
     for (let i = 0; i < this.comune.dati.length; i++) {
-      if (this.comune.dati[i].tipo === 'MF') {
-        let somma = 0;
-        let fascia0 = this.comune.dati[i].valori[0];
-        for (let j = 14; j < 50; j++) {
-          somma += this.comune.dati[i].valori[j];
+      if (
+        this.comune.dati[i].tipo === 'MF' &&
+        this.comune.dati[i].anno > 1982
+      ) {
+        //ANNO CORRENTE
+        let natiAnnoCorrente: number = this.comune.dati[i].valori[0];
+
+        // POPOLAZIONE TOTALE ANNO CORRENTE
+        let totaleAnnoCorrente: number = 0;
+        for (let j = 0; j < this.comune.dati[i].valori.length; j++) {
+          totaleAnnoCorrente += this.comune.dati[i].valori[j];
         }
-        let indiceFertilita: number = (fascia0 / somma) * 1000;
-        totali.push(indiceFertilita.toFixed(2));
+
+        //POPOLAZIONE TOTALE ANNO PRECEDENTE
+        let totaleAnnoPrecedente: number = 0;
+        for (let j = 0; j < this.comune.dati[i - 1].valori.length; j++) {
+          totaleAnnoPrecedente += this.comune.dati[i - 1].valori[j];
+        }
+
+        let tassoNatalita: number =
+          (natiAnnoCorrente /
+            ((totaleAnnoCorrente + totaleAnnoPrecedente) / 2)) *
+          1000;
+        totali.push(tassoNatalita.toFixed(2));
       }
     }
 
@@ -82,10 +101,8 @@ export class IndiceFertilitaComponent implements OnInit, OnChanges {
     interpolazione = [];
     let valoreInterpolazione: number;
     valoreInterpolazione = Number(totali[0]);
-    let andamentoInterpolazione: number;
-    andamentoInterpolazione = Number(
-      (totali[0] - totali[totali.length - 1]) / totali.length
-    );
+    let andamentoInterpolazione : number;
+    andamentoInterpolazione = Number((totali[0]-totali[totali.length-1])/totali.length);
     for (let i = 0; i < totali.length; i++) {
       valoreInterpolazione -= andamentoInterpolazione;
       interpolazione.push(valoreInterpolazione);
@@ -98,7 +115,10 @@ export class IndiceFertilitaComponent implements OnInit, OnChanges {
       borderColor: 'darkGrey',
     });
 
-    this.andamento = { labels: labels, datasets: datasets };
+    this.andamento = {
+      labels: labels,
+      datasets: datasets,
+    };
   }
 
   ngOnInit(): void {}

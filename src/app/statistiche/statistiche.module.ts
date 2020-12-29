@@ -8,11 +8,14 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
 import { IndiceFertilitaComponent } from './indice-fertilita/indice-fertilita.component';
-
-
+import { TassoNatalitaComponent } from './tasso-natalita/tasso-natalita.component';
 
 @NgModule({
-  declarations: [StatisticheComponent, IndiceFertilitaComponent],
+  declarations: [
+    StatisticheComponent,
+    IndiceFertilitaComponent,
+    TassoNatalitaComponent,
+  ],
   imports: [
     CommonModule,
     DropdownModule,
@@ -22,6 +25,10 @@ import { IndiceFertilitaComponent } from './indice-fertilita/indice-fertilita.co
     ChartModule,
     ToastModule,
   ],
-  exports: [StatisticheComponent, IndiceFertilitaComponent]
+  exports: [
+    StatisticheComponent,
+    IndiceFertilitaComponent,
+    TassoNatalitaComponent,
+  ],
 })
-export class StatisticheModule { }
+export class StatisticheModule {}
