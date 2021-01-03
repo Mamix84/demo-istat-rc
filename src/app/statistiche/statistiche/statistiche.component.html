@@ -18,6 +18,17 @@
     <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
         <div class="p-col">
+          <app-popolazione-maschile [comune]="storicoComune"></app-popolazione-maschile>
+        </div>
+        <div class="p-col">
+          <app-popolazione-femminile [comune]="storicoComune"></app-popolazione-femminile>
+        </div>
+        <div class="p-col">
+          <app-popolazione-totale [comune]="storicoComune"></app-popolazione-totale>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
           <app-indice-fertilita [comune]="storicoComune"></app-indice-fertilita>
         </div>
         <div class="p-col">
