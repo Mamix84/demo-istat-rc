@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndiceFertilitaComponent } from './indice-fertilita.component';
+import { GraficoLineeComponent } from './grafico-linee.component';
 
-describe('IndiceFertilitaComponent', () => {
-  let component: IndiceFertilitaComponent;
-  let fixture: ComponentFixture<IndiceFertilitaComponent>;
+describe('GraficoLineeComponent', () => {
+  let component: GraficoLineeComponent;
+  let fixture: ComponentFixture<GraficoLineeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndiceFertilitaComponent ]
+      declarations: [ GraficoLineeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IndiceFertilitaComponent);
+    fixture = TestBed.createComponent(GraficoLineeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

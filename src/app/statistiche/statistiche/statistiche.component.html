@@ -18,21 +18,26 @@
     <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
         <div class="p-col">
-          <app-popolazione-maschile [comune]="storicoComune"></app-popolazione-maschile>
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPM'" [indicatoreLabel]="'POPOLAZIONE MASCHILE'"
+            [interpolazione]="true"></app-grafico-linee>
         </div>
         <div class="p-col">
-          <app-popolazione-femminile [comune]="storicoComune"></app-popolazione-femminile>
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPF'" [indicatoreLabel]="'POPOLAZIONE FEMMINILE'"
+            [interpolazione]="true"></app-grafico-linee>
         </div>
         <div class="p-col">
-          <app-popolazione-totale [comune]="storicoComune"></app-popolazione-totale>
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPMF'" [indicatoreLabel]="'POPOLAZIONE TOTALE'"
+          [interpolazione]="true"></app-grafico-linee>
         </div>
       </div>
       <div class="p-grid">
         <div class="p-col">
-          <app-indice-fertilita [comune]="storicoComune"></app-indice-fertilita>
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'FERT'" [indicatoreLabel]="'INDICE FERTILITA'"
+          [interpolazione]="true"></app-grafico-linee>
         </div>
         <div class="p-col">
-          <app-tasso-natalita [comune]="storicoComune"></app-tasso-natalita>
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'NATA'" [indicatoreLabel]="'TASSO NATALITA'"
+          [interpolazione]="true"></app-grafico-linee>
         </div>
       </div>
     </p-panel>

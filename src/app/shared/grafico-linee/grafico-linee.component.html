@@ -1,6 +1,6 @@
 <div class="p-grid">
   <div class="p-col">
-    <p-panel header="POPOLAZIONE FEMMINILE">
+    <p-panel header="{{this.indicatoreLabel}}">
       <div class="p-grid">
         <div class="p-col">
           <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
@@ -8,8 +8,8 @@
       </div>
       <div class="p-grid">
         <div class="p-col">
-          <h3>POPOLAZIONE FEMMINILE (anno {{this.annoInizio}}): {{this.primoAnno}}</h3>
-          <h3>POPOLAZIONE FEMMINILE (anno {{this.annoFine}}): {{this.ultimoAnno}}</h3>
+          <h3>{{this.indicatoreLabel}} (anno {{this.annoInizio}}): {{this.primoAnno}}</h3>
+          <h3>{{this.indicatoreLabel}} (anno {{this.annoFine}}): {{this.ultimoAnno}}</h3>
           <h3>VARIAZIONE % (tra {{this.annoInizio}} e {{this.annoFine}}): {{this.variazionePercentuale}} %</h3>
         </div>
       </div>
