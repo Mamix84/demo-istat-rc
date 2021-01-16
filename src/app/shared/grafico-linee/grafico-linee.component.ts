@@ -73,11 +73,7 @@ export class GraficoLineeComponent implements OnInit {
           indicatoreResponse.totali[indicatoreResponse.totali.length - 1]) /
           (indicatoreResponse.totali.length - 1)
       );
-      console.log(indicatoreResponse.totali[0]);
-      console.log(indicatoreResponse.totali[indicatoreResponse.totali.length - 1]);
-      console.log(indicatoreResponse.totali.length - 1);
 
-      console.log(andamentoInterpolazione);
       interpolazione.push(valoreInterpolazione);
       for (let i = 1; i < indicatoreResponse.totali.length; i++) {
         valoreInterpolazione -= andamentoInterpolazione;

@@ -34,8 +34,12 @@ export class HeaderComponent implements OnInit {
       routerLink: ['/aggiorna-storico']
     },{
       label: 'CONFRONTA COMUNI',
-      icon: 'pi pi-pencil',
+      icon: 'pi pi-sliders-h',
       routerLink: ['/confronta-comuni']
+    },{
+      label: 'POPOLAZIONE ETA\' SCOLARE',
+      icon: 'pi pi-book',
+      routerLink: ['/eta-scolare']
     },]
   }
 

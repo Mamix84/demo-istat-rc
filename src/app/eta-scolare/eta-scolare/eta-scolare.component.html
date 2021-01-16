@@ -1,0 +1,45 @@
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <h4>SELEZIONA COMUNE</h4>
+          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="Seleziona un comune"
+            [filter]="true" (onChange)="caricaStoricoComune()">
+          </p-dropdown>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="POPOLAZIONE ETA SCOLARE" *ngIf="comuneSelezionato != undefined">
+      <div class="p-grid">
+        <div class="p-col">
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'NIDO'" [indicatoreLabel]="'ASILO NIDO'"
+            [interpolazione]="true"></app-grafico-linee>
+        </div>
+        <div class="p-col">
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMA'" [indicatoreLabel]="'SCUOLA MATERNA'"
+            [interpolazione]="true"></app-grafico-linee>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCEM'" [indicatoreLabel]="'SCUOLA ELEMENTARE'"
+            [interpolazione]="true"></app-grafico-linee>
+        </div>
+        <div class="p-col">
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMI'" [indicatoreLabel]="'SCUOLA MEDIA INFERIORE'"
+            [interpolazione]="true"></app-grafico-linee>
+        </div>
+        <div class="p-col">
+          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMS'" [indicatoreLabel]="'SCUOLA MEDIA SUPERIORE'"
+            [interpolazione]="true"></app-grafico-linee>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>

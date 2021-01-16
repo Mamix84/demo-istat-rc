@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AggiornaStoricoComponent } from './aggiorna-storico/aggiorna-storico/aggiorna-storico.component';
 import { ConfrontaComuniComponent } from './confronta-comuni/confronta-comuni/confronta-comuni.component';
+import { EtaScolareComponent } from './eta-scolare/eta-scolare/eta-scolare.component';
 import { GraficiComponent } from './grafici/grafici/grafici.component';
 import { HomeComponent } from './home/home/home.component';
 import { StatisticheComponent } from './statistiche/statistiche/statistiche.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'grafici', component: GraficiComponent },
   { path: 'statistiche', component: StatisticheComponent },
   { path: 'confronta-comuni', component: ConfrontaComuniComponent },
+  { path: 'eta-scolare', component: EtaScolareComponent },
   { path: '', component: HomeComponent },
 ];
 

@@ -12,6 +12,7 @@ import { StatisticheModule } from './statistiche/statistiche.module';
 import { GraficiModule } from './grafici/grafici.module';
 import { HomeModule } from './home/home.module';
 import { ConfrontaComuniModule } from './confronta-comuni/confronta-comuni.module';
+import { EtaScolareModule } from './eta-scolare/eta-scolare.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ConfrontaComuniModule } from './confronta-comuni/confronta-comuni.modul
     StatisticheModule,
     GraficiModule,
     HomeModule,
-    ConfrontaComuniModule
+    ConfrontaComuniModule,
+    EtaScolareModule
   ],
   providers: [],
   bootstrap: [AppComponent]
