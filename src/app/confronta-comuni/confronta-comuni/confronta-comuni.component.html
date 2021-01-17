@@ -1,15 +1,20 @@
 <div class="p-grid">
   <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col">
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>SELEZIONA COMUNE</h4>
-          <p-multiSelect [options]="comuni" [(ngModel)]="comuniSelezionati" placeholder="Seleziona un comune"
+          <h4>COMUNE:</h4>
+          <p-multiSelect [options]="comuni" [(ngModel)]="comuniSelezionati" placeholder="SELEZIONA UN COMUNE"
             [filter]="true" (onChange)="caricaStoricoComune()"></p-multiSelect>
         </div>
         <div class="p-col">
-          <h4>SELEZIONA SESSO</h4>
-          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="Seleziona sesso"
+          <h4>SESSO:</h4>
+          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="SELEZIONA SESSO"
             (onChange)="caricaStoricoComune()" [disabled]="comuniSelezionati.length == 0 "></p-dropdown>
         </div>
       </div>

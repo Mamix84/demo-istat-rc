@@ -7,6 +7,7 @@ import { PanelModule } from 'primeng/panel';
 import { ChartModule } from 'primeng/chart';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [ConfrontaComuniComponent],
@@ -18,6 +19,7 @@ import { ToastModule } from 'primeng/toast';
     PanelModule,
     ToastModule,
     MultiSelectModule,
+    SharedModule
   ],
   exports: [ConfrontaComuniComponent],
 })

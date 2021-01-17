@@ -9,9 +9,11 @@ import { GraficoLineeComponent } from './grafico-linee/grafico-linee.component';
 import { ChartModule } from 'primeng/chart';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, GraficoLineeComponent],
+  declarations: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
   imports: [
     CommonModule,
     MenuModule,
@@ -20,7 +22,8 @@ import { ToastModule } from 'primeng/toast';
     PanelModule,
     ChartModule,
     ToastModule,
+    BreadcrumbModule
   ],
-  exports: [HeaderComponent, FooterComponent, GraficoLineeComponent],
+  exports: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
 })
 export class SharedModule {}

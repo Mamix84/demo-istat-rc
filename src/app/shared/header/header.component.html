@@ -1,19 +1,9 @@
 <div class="p-grid header">
   <div class="p-col-1">
-    <button
-      #btn
-      type="button"
-      pButton
-      icon="pi pi-bars"
-      (click)="menu.toggle($event)"
-    ></button>
-    <p-menu
-      #menu
-      [model]="items"
-      [popup]="true"
-    ></p-menu>
+    <button #btn type="button" pButton icon="pi pi-bars" (click)="menu.toggle($event)"></button>
+    <p-menu #menu [model]="items" [popup]="true"></p-menu>
   </div>
-  <div class="p-col">
+  <div class="p-col-11" style="margin-top: 0.0sem;">
     <h1>DEMO ISTAT RC</h1>
   </div>
 </div>

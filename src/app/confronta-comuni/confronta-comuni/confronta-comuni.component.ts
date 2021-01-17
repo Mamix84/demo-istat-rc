@@ -15,6 +15,10 @@ export class ConfrontaComuniComponent implements OnInit {
   sessoSelezionato: string;
   sessi: SelectItem[];
   storicoComune: Comune;
+  menuItem = [
+    { label: 'STATISTICHE POPOLAZIONE - COMUNI MULTIPLI' },
+    { label: 'CONFRONTI COMUNI' },
+  ];
 
   andamento: any;
 
@@ -35,18 +39,18 @@ export class ConfrontaComuniComponent implements OnInit {
     // COMUNI
     this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
-      this.comuni.push({ label: 'Nessun filtro', value: undefined });
+      this.comuni.push({ label: 'NESSUN FILTRO', value: undefined });
       for (let i = 0; i < response.listaComuni.length; i++) {
         let comuneTemp: Comune = response.listaComuni[i];
         this.comuni.push({
           value: comuneTemp.codice,
-          label: comuneTemp.denominazione,
+          label: comuneTemp.denominazione.toUpperCase(),
         });
       }
     });
 
     //SESSI
-    this.sessi.push({ label: 'Nessun filtro', value: undefined });
+    this.sessi.push({ label: 'NESSUN FILTRO', value: undefined });
     this.sessi.push({ value: 'M', label: 'MASCHI' });
     this.sessi.push({ value: 'F', label: 'FEMMINE' });
     this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });

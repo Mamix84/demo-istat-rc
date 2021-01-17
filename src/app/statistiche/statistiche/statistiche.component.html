@@ -1,10 +1,16 @@
 <div class="p-grid">
   <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col">
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>SELEZIONA COMUNE</h4>
-          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="Seleziona un comune"
+          <h4>COMUNE:</h4>
+          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="SELEZIONA UN COMUNE"
             [filter]="true" (onChange)="caricaStoricoComune()">
           </p-dropdown>
         </div>
@@ -17,27 +23,27 @@
   <div class="p-col">
     <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
-        <div class="p-col">
+        <div class="p-col-4">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPM'" [indicatoreLabel]="'POPOLAZIONE MASCHILE'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col">
+        <div class="p-col-4">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPF'" [indicatoreLabel]="'POPOLAZIONE FEMMINILE'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col">
+        <div class="p-col-4">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPMF'" [indicatoreLabel]="'POPOLAZIONE TOTALE'"
-          [interpolazione]="true"></app-grafico-linee>
+            [interpolazione]="true"></app-grafico-linee>
         </div>
       </div>
       <div class="p-grid">
-        <div class="p-col">
+        <div class="p-col-6">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'FERT'" [indicatoreLabel]="'INDICE FERTILITA'"
-          [interpolazione]="true"></app-grafico-linee>
+            [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col">
+        <div class="p-col-6">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'NATA'" [indicatoreLabel]="'TASSO NATALITA'"
-          [interpolazione]="true"></app-grafico-linee>
+            [interpolazione]="true"></app-grafico-linee>
         </div>
       </div>
     </p-panel>

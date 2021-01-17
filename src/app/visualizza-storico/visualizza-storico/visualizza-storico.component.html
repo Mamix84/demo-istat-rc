@@ -1,22 +1,27 @@
 <div class="p-grid">
   <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col">
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>SELEZIONA COMUNE</h4>
-          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="Seleziona un comune" [filter]="true"
-            (onChange)="caricaStoricoComune()">
+          <h4>COMUNE:</h4>
+          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="SELEZIONA UN COMUNE"
+            [filter]="true" (onChange)="caricaStoricoComune()">
           </p-dropdown>
         </div>
         <div class="p-col">
-          <h4>SELEZIONA ANNO</h4>
-          <p-dropdown [options]="anni" [(ngModel)]="annoSelezionato" placeholder="Seleziona anno di riferimento"
+          <h4>ANNO:</h4>
+          <p-dropdown [options]="anni" [(ngModel)]="annoSelezionato" placeholder="SELEZIONA ANNO DI RIFERIMENTO"
             [filter]="true" (onChange)="caricaStoricoComune()" [disabled]="comuneSelezionato === undefined">
           </p-dropdown>
         </div>
         <div class="p-col">
-          <h4>SELEZIONA SESSO</h4>
-          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="Seleziona sesso" [filter]="false"
+          <h4>SESSO:</h4>
+          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="SELEZIONA SESSO" [filter]="false"
             (onChange)="caricaStoricoComune()" [disabled]="comuneSelezionato === undefined"></p-dropdown>
         </div>
       </div>

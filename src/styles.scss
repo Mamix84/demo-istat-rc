@@ -3,75 +3,102 @@
 $grey: rgb(185, 185, 185);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
+$jet: #323031ff;
+$jet-2: #3d3b3cff;
+$sonic-silver: #7f7979ff;
+$pale-silver: #c1bdb3ff;
+$independence: #5f5b6bff;
+
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/font/Roboto-Light.ttf);
+}
 
 body {
-    font-family: "Arial", Times, serif;
-  }
+  font-family: "Roboto", Times, serif;
+}
 
-  .main {
-      width: 100%;
-  }
+.main {
+  width: 90%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
 
-  h1{
-    color: $black;
-    margin: 0;
-  }
+h1 {
+  color: $jet-2;
+  font-size: 2em;
+  margin: 0;
+}
 
-  h2{
-    color: $black;
-    margin: 0;
-  }
+h2 {
+  color: $jet-2;
+  font-size: 1.5em;
+  margin: 0;
+}
 
-  h3{
-    color: $black;
-    margin: 0;
-  }
+h3 {
+  color: $jet-2;
+  font-size: 1.2em;
+  margin: 0;
+}
 
-  h4{
-    color: $black;
-    margin: 0;
-  }
+h4 {
+  color: $jet-2;
+  font-size: 1em;
+  margin: 0;
+}
 
-  h5{
-    color: $black;
-    margin: 0;
-  }
+h5 {
+  color: $jet-2;
+  font-size: 0.8em;
+  margin: 0;
+}
 
-  .header {
-    background: rgb(185,185,185);
-    background: linear-gradient(90deg, rgba(185,185,185,1) 0%, rgba(185,185,185,1) 10%, rgba(255,255,255,1) 100%);
-    width: 100%;
-    color: white;
-    text-align: left;
-    font-size:0.8em;
-  }
+.header {
+  background: rgb(185, 185, 185);
+  background: linear-gradient(90deg, $pale-silver  0%,  $independence 100%);
+  color: white;
+  text-align: left;
+}
 
-  .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: $grey;
-    color: white;
-    text-align: center;
-    font-size:0.8em;
-  }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $sonic-silver;
+  color: white;
+  text-align: center;
+}
 
-  .main{
-    width: 100%;
-  }
+.p-dropdown {
+  width: 100%;
+}
 
-  .p-dropdown{
-    width: 100%;
-  }
+.p-multiselect {
+  width: 100%;
+}
 
-  .p-multiselect{
-    width: 100%;
-  }
+.p-panel {
+  box-shadow: 0.1em 0.3em 1.0em $independence !important;
+  margin: 0.5em !important;
+  border-radius: 7px !important;
+}
 
-  .p-panel .p-panel-header{
-    background-color: $grey !important;
-  }
+.p-panel .p-panel-header {
+  background-color: $independence !important;
+  color: $pale-silver !important;
+  border-top-right-radius: 7px !important;
+  border-top-left-radius: 7px !important;
+}
 
-  .p-button{
-    width: 100%;
-  }
+.p-panel .p-panel-content {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-right-radius: 7px !important;
+  border-bottom-left-radius: 7px !important;
+}
+
+.p-button {
+  width: 100%;
+  background-color: $independence !important;
+}

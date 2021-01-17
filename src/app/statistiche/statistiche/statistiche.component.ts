@@ -13,6 +13,11 @@ export class StatisticheComponent implements OnInit {
   comuni: SelectItem[];
   @Output() storicoComune: Comune;
 
+  menuItem = [
+    { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
+    { label: 'STATISTICHE' },
+  ];
+
   constructor(private comuniService: ComuniService) {
     this.comuni = [];
     this.storicoComune = new Comune();
@@ -23,12 +28,12 @@ export class StatisticheComponent implements OnInit {
     // COMUNI
     this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
-      this.comuni.push({ label: 'Nessun filtro', value: undefined });
+      this.comuni.push({ label: 'NESSUN FILTRO', value: undefined });
       for (let i = 0; i < response.listaComuni.length; i++) {
         let comuneTemp: Comune = response.listaComuni[i];
         this.comuni.push({
           value: comuneTemp.codice,
-          label: comuneTemp.denominazione,
+          label: comuneTemp.denominazione.toUpperCase(),
         });
       }
     });

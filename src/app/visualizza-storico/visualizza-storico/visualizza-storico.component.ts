@@ -20,6 +20,11 @@ export class VisualizzaStoricoComponent implements OnInit {
   sessoSelezionato: string;
   sessi: SelectItem[];
 
+  menuItem = [
+    { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
+    { label: 'VISUALIZZA STORICO' },
+  ];
+
   constructor(private comuniService: ComuniService) {
     this.comuni = [];
     this.storicoComune = new Comune();
@@ -32,12 +37,12 @@ export class VisualizzaStoricoComponent implements OnInit {
     // COMUNI
     this.comuniService.caricaListaComuni().then((data) => {
       let response: any = data;
-      this.comuni.push({ label: 'Nessun filtro', value: undefined });
+      this.comuni.push({ label: 'NESSUN FILTRO', value: undefined });
       for (let i = 0; i < response.listaComuni.length; i++) {
         let comuneTemp: Comune = response.listaComuni[i];
         this.comuni.push({
           value: comuneTemp.codice,
-          label: comuneTemp.denominazione,
+          label: comuneTemp.denominazione.toUpperCase(),
         });
       }
     });
@@ -45,13 +50,13 @@ export class VisualizzaStoricoComponent implements OnInit {
     this.frozenCols = [{ field: 'comune.anno', header: 'ANNO' }];
 
     // ANNI
-    this.anni.push({ label: 'Nessun filtro', value: undefined });
+    this.anni.push({ label: 'NESSUN FILTRO', value: undefined });
     for (let i = 1982; i < 2021; i++) {
       this.anni.push({ label: i + '', value: i + '' });
     }
 
     //SESSI
-    this.sessi.push({ label: 'Nessun filtro', value: undefined });
+    this.sessi.push({ label: 'NESSUN FILTRO', value: undefined });
     this.sessi.push({ value: 'M', label: 'MASCHI' });
     this.sessi.push({ value: 'F', label: 'FEMMINE' });
     this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });

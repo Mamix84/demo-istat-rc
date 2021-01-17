@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AggiornaStoricoComponent implements OnInit {
 
+  menuItem = [
+    { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
+    { label: 'AGGIORNA STORICO' },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
