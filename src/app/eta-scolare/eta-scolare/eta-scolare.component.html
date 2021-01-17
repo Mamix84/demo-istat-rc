@@ -27,25 +27,25 @@
   <div class="p-col">
     <p-panel header="POPOLAZIONE ETA SCOLARE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
-        <div class="p-col-6">
+        <div class="p-md-6 p-sm-12">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'NIDO'" [indicatoreLabel]="'ASILO NIDO'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col-6">
+        <div class="p-md-6 p-sm-12">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMA'" [indicatoreLabel]="'SCUOLA MATERNA'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
       </div>
       <div class="p-grid">
-        <div class="p-col-4">
+        <div class="p-md-4 p-sm-12">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCEM'" [indicatoreLabel]="'SCUOLA ELEMENTARE'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col-4">
+        <div class="p-md-4 p-sm-12">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMI'" [indicatoreLabel]="'SCUOLA MEDIA INFERIORE'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
-        <div class="p-col-4">
+        <div class="p-md-4 p-sm-12">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMS'" [indicatoreLabel]="'SCUOLA MEDIA SUPERIORE'"
             [interpolazione]="true"></app-grafico-linee>
         </div>
