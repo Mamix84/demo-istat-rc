@@ -23,7 +23,7 @@
 </div>
 
 <div class="p-grid" *ngIf="sessoSelezionato != ''">
-  <div class="p-col">
+  <div class="p-col-12 p-md-12">
     <p-panel header="ANDAMENTO">
       <p-toast [style]="{marginTop: '80px'}"></p-toast>
       <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
