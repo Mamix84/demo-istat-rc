@@ -1,21 +1,21 @@
 <p-panel header="{{this.indicatoreLabel}}">
   <div class="p-grid">
-    <div class="p-col-12 p-md-12">
+    <div class="p-col-12 p-md-12 p-m-0 p-m-md-2 p-p-1 p-p-md-0">
       <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)" [responsive]="true"></p-chart>
     </div>
   </div>
   <div class="p-grid">
-    <div class="p-col">
+    <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
       <h4>{{this.indicatoreLabel}} (anno {{this.annoInizio}}): {{this.primoAnno}}</h4>
     </div>
   </div>
   <div class="p-grid">
-    <div class="p-col">
+    <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
       <h4>{{this.indicatoreLabel}} (anno {{this.annoFine}}): {{this.ultimoAnno}}</h4>
     </div>
   </div>
   <div class="p-grid">
-    <div class="p-col">
+    <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
       <h4>VARIAZIONE % (tra {{this.annoInizio}} e {{this.annoFine}}): {{this.variazionePercentuale}} %</h4>
     </div>
   </div>
