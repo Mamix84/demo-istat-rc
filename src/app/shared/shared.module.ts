@@ -11,6 +11,7 @@ import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {TieredMenuModule} from 'primeng/tieredmenu';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
@@ -22,7 +23,8 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
     PanelModule,
     ChartModule,
     ToastModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    TieredMenuModule
   ],
   exports: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
 })

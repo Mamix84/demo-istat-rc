@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AggiornaStoricoComponent } from './aggiorna-storico/aggiorna-storico/aggiorna-storico.component';
-import { ConfrontaComuniComponent } from './confronta-comuni/confronta-comuni/confronta-comuni.component';
-import { EtaScolareComponent } from './eta-scolare/eta-scolare/eta-scolare.component';
-import { GraficiComponent } from './grafici/grafici/grafici.component';
+import { AggiornaStoricoComponent } from './comune-singolo/aggiorna-storico/aggiorna-storico/aggiorna-storico.component';
+import { EtaScolareComponent } from './comune-singolo/eta-scolare/eta-scolare/eta-scolare.component';
+import { GraficiComponent } from './comune-singolo/grafici/grafici/grafici.component';
+import { StatisticheComponent } from './comune-singolo/statistiche/statistiche/statistiche.component';
+import { VisualizzaStoricoComponent } from './comune-singolo/visualizza-storico/visualizza-storico/visualizza-storico.component';
+import { ConfrontaComuniComponent } from './comuni-multipli/confronta-comuni/confronta-comuni/confronta-comuni.component';
+import { EtaScolarePopolazioneMultipliComponent } from './comuni-multipli/eta-scolare-popolazione-multipli/eta-scolare-popolazione-multipli/eta-scolare-popolazione-multipli.component';
+import { StatistichePopolazioneMultipliComponent } from './comuni-multipli/statistiche-popolazione-multipli/statistiche-popolazione-multipli/statistiche-popolazione-multipli.component';
 import { HomeComponent } from './home/home/home.component';
-import { StatisticheComponent } from './statistiche/statistiche/statistiche.component';
-import { VisualizzaStoricoComponent } from './visualizza-storico/visualizza-storico/visualizza-storico.component';
 
 const routes: Routes = [
   { path: 'visualizza-storico', component: VisualizzaStoricoComponent },
@@ -15,6 +17,11 @@ const routes: Routes = [
   { path: 'statistiche', component: StatisticheComponent },
   { path: 'confronta-comuni', component: ConfrontaComuniComponent },
   { path: 'eta-scolare', component: EtaScolareComponent },
+  {
+    path: 'eta-scolare-popolazione-multipli',
+    component: EtaScolarePopolazioneMultipliComponent,
+  },
+  { path: 'statistiche-popolazione-multipli', component: StatistichePopolazioneMultipliComponent},
   { path: '', component: HomeComponent },
 ];
 

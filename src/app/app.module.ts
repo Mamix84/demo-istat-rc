@@ -1,38 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { VisualizzaStoricoModule } from './visualizza-storico/visualizza-storico.module';
-import { AggiornaStoricoModule } from './aggiorna-storico/aggiorna-storico.module';
-import { StatisticheModule } from './statistiche/statistiche.module';
-import { GraficiModule } from './grafici/grafici.module';
 import { HomeModule } from './home/home.module';
-import { ConfrontaComuniModule } from './confronta-comuni/confronta-comuni.module';
-import { EtaScolareModule } from './eta-scolare/eta-scolare.module';
+import { ComuneSingoloModule } from './comune-singolo/comune-singolo.module';
+import { ComuniMultipliModule } from './comuni-multipli/comuni-multipli.module';
+import { AreeModule } from './aree/aree.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     NoopAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    VisualizzaStoricoModule,
-    AggiornaStoricoModule,
-    StatisticheModule,
-    GraficiModule,
     HomeModule,
-    ConfrontaComuniModule,
-    EtaScolareModule
+    ComuneSingoloModule,
+    ComuniMultipliModule,
+    AreeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

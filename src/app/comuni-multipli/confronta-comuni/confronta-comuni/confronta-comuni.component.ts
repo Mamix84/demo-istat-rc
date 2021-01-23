@@ -1,38 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService, SelectItem } from 'primeng/api';
+import { SelectItem, MessageService } from 'primeng/api';
 import { Comune } from 'src/app/model/comune';
 import { ComuniService } from 'src/app/services/comuni.service';
 
 @Component({
-  selector: 'app-grafici',
-  templateUrl: './grafici.component.html',
-  styleUrls: ['./grafici.component.scss'],
+  selector: 'app-confronta-comuni',
+  templateUrl: './confronta-comuni.component.html',
+  styleUrls: ['./confronta-comuni.component.scss'],
   providers: [MessageService],
 })
-export class GraficiComponent implements OnInit {
-  comuneSelezionato: string;
+export class ConfrontaComuniComponent implements OnInit {
+  comuniSelezionati: string[];
   comuni: SelectItem[];
-  sessiSelezionati: string[];
+  sessoSelezionato: string;
   sessi: SelectItem[];
   storicoComune: Comune;
+  menuItem = [
+    { label: 'STATISTICHE POPOLAZIONE - COMUNI MULTIPLI' },
+    { label: 'CONFRONTO GRAFICI POPOLAZIONE' },
+  ];
 
   andamento: any;
-
-  menuItem = [
-    { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
-    { label: 'GRAFICI' },
-  ];
 
   constructor(
     private comuniService: ComuniService,
     private messageService: MessageService
   ) {
     this.comuni = [];
+    this.comuniSelezionati = [];
     this.storicoComune = new Comune();
     this.storicoComune.dati = [];
     this.sessi = [];
     this.andamento = { labels: [], datasets: [] };
-    this.sessiSelezionati = [];
+    this.sessoSelezionato = '';
   }
 
   ngOnInit(): void {
@@ -50,49 +50,49 @@ export class GraficiComponent implements OnInit {
     });
 
     //SESSI
+    this.sessi.push({ label: 'NESSUN FILTRO', value: undefined });
     this.sessi.push({ value: 'M', label: 'MASCHI' });
     this.sessi.push({ value: 'F', label: 'FEMMINE' });
     this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });
   }
 
   caricaStoricoComune() {
-    this.comuniService
-      .caricaStoricoComune(this.comuneSelezionato)
-      .then((data) => {
-        let response: any = data;
-        let storicoComuneTemp: Comune = response;
+    //DATASET
+    let datasets: any[];
+    datasets = [];
 
-        this.storicoComune.codice = storicoComuneTemp.codice;
-        this.storicoComune.denominazione = this.storicoComune.denominazione;
-        this.storicoComune.dati = [];
+    this.andamento = { labels: [], datasets: [] };
+    for (let i = 0; i < this.comuniSelezionati.length; i++) {
+      this.comuniService
+        .caricaStoricoComune(this.comuniSelezionati[i])
+        .then((data) => {
+          let response: any = data;
+          let storicoComuneTemp: Comune = response;
 
-        for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
-          for (let j = 0; j < this.sessiSelezionati.length; j++) {
-            if (this.sessiSelezionati[j] === storicoComuneTemp.dati[i].tipo) {
+          this.storicoComune.codice = storicoComuneTemp.codice;
+          this.storicoComune.denominazione = this.storicoComune.denominazione;
+          this.storicoComune.dati = [];
+
+          for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
+            if (this.sessoSelezionato === storicoComuneTemp.dati[i].tipo) {
               this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
             }
           }
-        }
 
-        //ANDAMENTO
-        let labels: string[];
-        labels = [];
-        for (let i = 0; i < this.storicoComune.dati.length; i++) {
-          if (this.storicoComune.dati[i].tipo === this.sessiSelezionati[0]) {
-            labels.push(this.storicoComune.dati[i].anno.toString());
+          //ANDAMENTO
+          let labels: string[];
+          labels = [];
+          for (let i = 0; i < this.storicoComune.dati.length; i++) {
+            if (this.storicoComune.dati[i].tipo === this.sessoSelezionato) {
+              labels.push(this.storicoComune.dati[i].anno.toString());
+            }
           }
-        }
 
-        //DATASET
-        let datasets: any[];
-        datasets = [];
+          let totali: any[];
 
-        let totali: any[];
-
-        for (let k = 0; k < this.sessiSelezionati.length; k++) {
           totali = [];
           for (let i = 0; i < this.storicoComune.dati.length; i++) {
-            if (this.storicoComune.dati[i].tipo === this.sessiSelezionati[k]) {
+            if (this.storicoComune.dati[i].tipo === this.sessoSelezionato) {
               let somma = 0;
               for (
                 let j = 0;
@@ -106,32 +106,22 @@ export class GraficiComponent implements OnInit {
           }
 
           //COLOR
-          let color: string;
-          switch (this.sessiSelezionati[k]) {
-            case 'M': {
-              color = '#0023ff';
-              break;
-            }
-            case 'F': {
-              color = '#ff00f5';
-              break;
-            }
-            case 'MF': {
-              color = '#474047';
-              break;
-            }
+          let letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
           }
 
           datasets.push({
-            label: this.comuneSelezionato + ' - ' + this.sessiSelezionati[k],
+            label: this.comuniSelezionati[i] + ' - ' + this.sessoSelezionato,
             data: totali,
             fill: false,
             borderColor: color,
           });
-        }
 
-        this.andamento = { labels: labels, datasets: datasets };
-      });
+          this.andamento = { labels: labels, datasets: datasets };
+        });
+    }
   }
 
   selectData(event) {

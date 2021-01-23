@@ -1,4 +1,10 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Comune } from 'src/app/model/comune';
 import { IndicatoreService } from 'src/app/services/indicatore.service';
@@ -9,8 +15,9 @@ import { IndicatoreService } from 'src/app/services/indicatore.service';
   styleUrls: ['./grafico-linee.component.scss'],
   providers: [MessageService],
 })
-export class GraficoLineeComponent implements OnInit {
+export class GraficoLineeComponent implements OnInit, OnChanges {
   @Input() comune: Comune;
+  @Input() listaComuni: Comune[];
   @Input() indicatore: string = 'GRAFICO';
   @Input() indicatoreLabel: string = 'GRAFICO';
   @Input() interpolazione: boolean = false;
@@ -20,6 +27,7 @@ export class GraficoLineeComponent implements OnInit {
   variazionePercentuale: string;
   annoInizio: string;
   annoFine: string;
+  datasets: any[];
 
   constructor(
     private messageService: MessageService,
@@ -28,6 +36,18 @@ export class GraficoLineeComponent implements OnInit {
     this.andamento = { labels: [], datasets: [] };
   }
   ngOnChanges(changes: SimpleChanges): void {
+    this.datasets = [];
+    this.andamento = { labels: [], datasets: [] };
+
+    if (this.listaComuni != undefined && this.listaComuni.length > 0) {
+      this.preparaDatasetComuniMultipli();
+    }
+    if (this.comune != undefined) {
+      this.preparaDatasetComuneSingolo();
+    }
+  }
+
+  preparaDatasetComuneSingolo() {
     let indicatoreResponse = this.indicatoreService.valutaIndicatore(
       this.indicatore,
       this.comune
@@ -44,6 +64,10 @@ export class GraficoLineeComponent implements OnInit {
     this.annoFine =
       indicatoreResponse.labels[indicatoreResponse.labels.length - 1];
 
+    if (this.interpolazione) {
+      this.preparaInterpolazione(indicatoreResponse);
+    }
+
     //COLOR
     let letters = '0123456789ABCDEF';
     let color = '#';
@@ -52,46 +76,76 @@ export class GraficoLineeComponent implements OnInit {
     }
 
     //DATASET
-    let datasets: any[];
-    datasets = [];
-    datasets.push({
+    this.datasets.push({
       label: this.indicatoreLabel,
       data: indicatoreResponse.totali,
       fill: false,
       borderColor: color,
     });
 
-    if (this.interpolazione) {
-      //INTERPOLAZIONE
-      let interpolazione: any[];
-      interpolazione = [];
-      let valoreInterpolazione: number;
-      valoreInterpolazione = Number(indicatoreResponse.totali[0]);
-      let andamentoInterpolazione: number;
-      andamentoInterpolazione = Number(
-        (indicatoreResponse.totali[0] -
-          indicatoreResponse.totali[indicatoreResponse.totali.length - 1]) /
-          (indicatoreResponse.totali.length - 1)
+    this.andamento = {
+      labels: indicatoreResponse.labels,
+      datasets: this.datasets,
+    };
+  }
+
+  preparaDatasetComuniMultipli() {
+    let indicatoreResponse;
+    for (let i = 0; i < this.listaComuni.length; i++) {
+      indicatoreResponse = this.indicatoreService.valutaIndicatore(
+        this.indicatore,
+        this.listaComuni[i]
       );
 
-      interpolazione.push(valoreInterpolazione);
-      for (let i = 1; i < indicatoreResponse.totali.length; i++) {
-        valoreInterpolazione -= andamentoInterpolazione;
-        interpolazione.push(valoreInterpolazione.toFixed(3));
+      //COLOR
+      let letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
       }
 
-      datasets.push({
-        label: 'ANDAMENTO LINEARE',
-        data: interpolazione,
+      //DATASET
+      this.datasets.push({
+        label: this.listaComuni[i].denominazione.toUpperCase(),
+        data: indicatoreResponse.totali,
         fill: false,
-        borderColor: 'darkGrey',
+        borderColor: color,
       });
     }
 
-    this.andamento = {
-      labels: indicatoreResponse.labels,
-      datasets: datasets,
-    };
+    if (indicatoreResponse) {
+      this.andamento = {
+        labels: indicatoreResponse.labels,
+        datasets: this.datasets,
+      };
+    }
+  }
+
+  preparaInterpolazione(indicatoreResponse: any) {
+    //INTERPOLAZIONE
+    let interpolazione: any[];
+    interpolazione = [];
+    let valoreInterpolazione: number;
+    valoreInterpolazione = Number(indicatoreResponse.totali[0]);
+    let andamentoInterpolazione: number;
+    andamentoInterpolazione = Number(
+      (indicatoreResponse.totali[0] -
+        indicatoreResponse.totali[indicatoreResponse.totali.length - 1]) /
+        (indicatoreResponse.totali.length - 1)
+    );
+
+    interpolazione.push(valoreInterpolazione);
+    for (let i = 1; i < indicatoreResponse.totali.length; i++) {
+      valoreInterpolazione -= andamentoInterpolazione;
+      interpolazione.push(valoreInterpolazione.toFixed(3));
+    }
+
+    this.datasets.push({
+      label: 'ANDAMENTO LINEARE',
+      data: interpolazione,
+      fill: false,
+      borderColor: 'darkGrey',
+    });
   }
 
   ngOnInit(): void {}

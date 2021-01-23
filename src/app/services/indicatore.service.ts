@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PopolazioneElementareService } from '../eta-scolare/services/popolazione-elementare.service';
-import { PopolazioneMaternaService } from '../eta-scolare/services/popolazione-materna.service';
-import { PopolazioneMediaInferioreService } from '../eta-scolare/services/popolazione-media-inferiore.service';
-import { PopolazioneMediaSuperioreService } from '../eta-scolare/services/popolazione-media-superiore.service';
-import { PopolazioneNidoService } from '../eta-scolare/services/popolazione-nido.service';
+import { PopolazioneElementareService } from '../comune-singolo/eta-scolare/services/popolazione-elementare.service';
+import { PopolazioneMaternaService } from '../comune-singolo/eta-scolare/services/popolazione-materna.service';
+import { PopolazioneMediaInferioreService } from '../comune-singolo/eta-scolare/services/popolazione-media-inferiore.service';
+import { PopolazioneMediaSuperioreService } from '../comune-singolo/eta-scolare/services/popolazione-media-superiore.service';
+import { PopolazioneNidoService } from '../comune-singolo/eta-scolare/services/popolazione-nido.service';
 import { Comune } from '../model/comune';
 import { IndiceFertilitaService } from './indice-fertilita.service';
 import { PopolazioneFemminileService } from './popolazione-femminile.service';

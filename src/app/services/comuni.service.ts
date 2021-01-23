@@ -23,4 +23,5 @@ export class ComuniService {
                  .then(res => <any[]> res.valueOf())
                  .then(data => { return data; });
  }
+
 }

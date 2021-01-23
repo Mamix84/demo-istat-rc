@@ -1,0 +1,54 @@
+<div class="p-grid">
+  <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <h4>COMUNE:</h4>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
+          <p-multiSelect [options]="comuni" [(ngModel)]="comuniSelezionati" placeholder="SELEZIONA UNO O PIU' COMUNI"
+            [filter]="true" (onChange)="caricaStoricoComune()"></p-multiSelect>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col-12 p-md-12">
+    <p-panel header="POPOLAZIONE ETA SCOLARE" *ngIf="comuniSelezionati != undefined && comuniSelezionati.length > 0">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-6">
+          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'NIDO'" [indicatoreLabel]="'ASILO NIDO'"
+            [interpolazione]="false"></app-grafico-linee>
+        </div>
+        <div class="p-col-12 p-md-6">
+          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMA'" [indicatoreLabel]="'SCUOLA MATERNA'"
+            [interpolazione]="false"></app-grafico-linee>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4">
+          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCEM'" [indicatoreLabel]="'SCUOLA ELEMENTARE'"
+            [interpolazione]="false"></app-grafico-linee>
+        </div>
+        <div class="p-col-12 p-sm-4">
+          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMI'"
+            [indicatoreLabel]="'SCUOLA MEDIA INFERIORE'" [interpolazione]="false"></app-grafico-linee>
+        </div>
+        <div class="p-col-12 p-sm-4">
+          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMS'"
+            [indicatoreLabel]="'SCUOLA MEDIA SUPERIORE'" [interpolazione]="false"></app-grafico-linee>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
