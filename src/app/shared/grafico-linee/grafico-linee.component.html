@@ -4,7 +4,7 @@
       <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)" [responsive]="true"></p-chart>
     </div>
   </div>
-  <div *ngIf="this.listaComuni == undefined || this.listaComuni.length < 1" F>
+  <div *ngIf="this.listaComuni == undefined || this.listaComuni.length < 1 || hiddenstat == true">
     <div class="p-grid">
       <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
         <h4>{{this.indicatoreLabel}} (anno {{this.annoInizio}}): {{this.primoAnno}}</h4>

@@ -21,6 +21,7 @@ export class GraficoLineeComponent implements OnInit, OnChanges {
   @Input() indicatore: string = 'GRAFICO';
   @Input() indicatoreLabel: string = 'GRAFICO';
   @Input() interpolazione: boolean = false;
+  @Input() hiddenstat: boolean = false;
   andamento: any;
   ultimoAnno: number;
   primoAnno: number;

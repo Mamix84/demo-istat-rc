@@ -42,6 +42,11 @@ export class HeaderComponent implements OnInit {
             icon: 'pi pi-book',
             routerLink: ['/eta-scolare'],
           },
+          {
+            label: "PREVISIONE",
+            icon: 'pi pi-question',
+            routerLink: ['/previsione-popolazione-singolo'],
+          },
         ],
       },
       {

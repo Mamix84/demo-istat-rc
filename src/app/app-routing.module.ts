@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AggiornaStoricoComponent } from './comune-singolo/aggiorna-storico/aggiorna-storico/aggiorna-storico.component';
 import { EtaScolareComponent } from './comune-singolo/eta-scolare/eta-scolare/eta-scolare.component';
 import { GraficiComponent } from './comune-singolo/grafici/grafici/grafici.component';
+import { PrevisioneComuneSingoloComponent } from './comune-singolo/previsione-comune-singolo/previsione-comune-singolo/previsione-comune-singolo.component';
 import { StatisticheComponent } from './comune-singolo/statistiche/statistiche/statistiche.component';
 import { VisualizzaStoricoComponent } from './comune-singolo/visualizza-storico/visualizza-storico/visualizza-storico.component';
 import { ConfrontaComuniComponent } from './comuni-multipli/confronta-comuni/confronta-comuni/confronta-comuni.component';
@@ -21,8 +22,15 @@ const routes: Routes = [
     path: 'eta-scolare-popolazione-multipli',
     component: EtaScolarePopolazioneMultipliComponent,
   },
-  { path: 'statistiche-popolazione-multipli', component: StatistichePopolazioneMultipliComponent},
+  {
+    path: 'statistiche-popolazione-multipli',
+    component: StatistichePopolazioneMultipliComponent,
+  },
   { path: '', component: HomeComponent },
+  {
+    path: 'previsione-popolazione-singolo',
+    component: PrevisioneComuneSingoloComponent,
+  },
 ];
 
 @NgModule({

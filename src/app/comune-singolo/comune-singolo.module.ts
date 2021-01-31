@@ -5,6 +5,7 @@ import { AggiornaStoricoModule } from './aggiorna-storico/aggiorna-storico.modul
 import { EtaScolareModule } from './eta-scolare/eta-scolare.module';
 import { GraficiModule } from './grafici/grafici.module';
 import { StatisticheModule } from './statistiche/statistiche.module';
+import { PrevisioneComuneSingoloModule } from './previsione-comune-singolo/previsione-comune-singolo.module';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { StatisticheModule } from './statistiche/statistiche.module';
     EtaScolareModule,
     GraficiModule,
     StatisticheModule,
+    PrevisioneComuneSingoloModule,
   ],
 })
 export class ComuneSingoloModule {}

@@ -1,0 +1,41 @@
+<div class="p-grid">
+  <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <h4>COMUNE:</h4>
+          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="SELEZIONE UN COMUNE"
+            [filter]="true" (onChange)="caricaStoricoComune()">
+          </p-dropdown>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="comuneSelezionato != undefined">
+  <div class="p-col-12 p-md-6">
+    <app-grafico-linee [comune]="storicoComune" [indicatore]="'PREV5'" [indicatoreLabel]="'PREVISIONE (ANDAMENTO ULTIMI 5 ANNI)'"
+      [interpolazione]="false"></app-grafico-linee>
+  </div>
+  <div class="p-col-12 p-md-6">
+    <app-grafico-linee [comune]="storicoComune" [indicatore]="'PREV10'" [indicatoreLabel]="'PREVISIONE (ANDAMENTO ULTIMI 10 ANNI)'"
+      [interpolazione]="false"></app-grafico-linee>
+  </div>
+</div>
+<div class="p-grid" *ngIf="comuneSelezionato != undefined">
+  <div class="p-col-12 p-md-6">
+    <app-grafico-linee [comune]="storicoComune" [indicatore]="'PREV15'" [indicatoreLabel]="'PREVISIONE (ANDAMENTO ULTIMI 15 ANNI)'"
+      [interpolazione]="false"></app-grafico-linee>
+  </div>
+  <div class="p-col-12 p-md-6">
+    <app-grafico-linee [comune]="storicoComune" [indicatore]="'PREV20'" [indicatoreLabel]="'PREVISIONE (ANDAMENTO ULTIMI 20 ANNI)'"
+      [interpolazione]="false"></app-grafico-linee>
+  </div>
+</div>
