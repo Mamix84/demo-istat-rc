@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GraficiPopolazioneAreaComponent } from './aree/grafici-popolazione-area/grafici-popolazione-area/grafici-popolazione-area.component';
 import { AggiornaStoricoComponent } from './comune-singolo/aggiorna-storico/aggiorna-storico/aggiorna-storico.component';
 import { EtaScolareComponent } from './comune-singolo/eta-scolare/eta-scolare/eta-scolare.component';
 import { GraficiComponent } from './comune-singolo/grafici/grafici/grafici.component';
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'previsione-popolazione-singolo',
     component: PrevisioneComuneSingoloComponent,
+  },
+  {
+    path: 'grafici-popolazione-area',
+    component: GraficiPopolazioneAreaComponent,
   },
 ];
 

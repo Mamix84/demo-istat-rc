@@ -1,0 +1,44 @@
+<div class="p-grid">
+  <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <h4>COMUNE:</h4>
+          <p-dropdown [options]="aree" [(ngModel)]="areaSelezionata" placeholder="SELEZIONE UN'AREA"
+            [filter]="true" (onChange)="caricaStoricoArea()">
+          </p-dropdown>
+        </div>
+        <div class="p-col">
+          <h4>SESSO:</h4>
+          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="SELEZIONE SESSO" [filter]="false"
+            (onChange)="caricaStoricoArea()" [disabled]="areaSelezionata === undefined">
+          </p-dropdown>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="sessoSelezionato != undefined">
+  <div class="p-col-12 p-md-12">
+    <p-panel header="ANDAMENTO TOTALE">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+      <p-chart type="line" [data]="andamentoTotale" (onDataSelect)="selectData($event)"></p-chart>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="sessoSelezionato != undefined">
+  <div class="p-col-12 p-md-12">
+    <p-panel header="ANDAMENTO SINGOLI COMUNI">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+      <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
+    </p-panel>
+  </div>
+</div>

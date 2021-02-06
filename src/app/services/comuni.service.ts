@@ -11,14 +11,14 @@ export class ComuniService {
   constructor(private http: HttpClient) {}
 
   caricaListaComuni() {
-     return this.http.get('assets/json/comuni.json')
+     return this.http.get('assets/json/domini/comuni.json')
                   .toPromise()
                   .then(res => <any[]> res.valueOf())
                   .then(data => { return data; });
   }
 
   caricaStoricoComune(codiceComune: string ) {
-    return this.http.get('assets/json/'+codiceComune+'.json')
+    return this.http.get('assets/json/popolazione/'+codiceComune+'.json')
                  .toPromise()
                  .then(res => <any[]> res.valueOf())
                  .then(data => { return data; });

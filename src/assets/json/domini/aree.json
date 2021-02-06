@@ -1,0 +1,20 @@
+{
+  "listaAree": [
+    {
+      "codice": "G",
+      "denominazione": "Grecanica"
+    },
+    {
+      "codice": "P",
+      "denominazione": "Piana"
+    },
+    {
+      "codice": "L",
+      "denominazione": "Locride"
+    },
+    {
+      "codice": "R",
+      "denominazione": "Reggio Calabria"
+    }
+  ]
+}

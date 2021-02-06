@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
             routerLink: ['/eta-scolare'],
           },
           {
-            label: "PREVISIONE",
+            label: 'PREVISIONE',
             icon: 'pi pi-question',
             routerLink: ['/previsione-popolazione-singolo'],
           },
@@ -81,6 +81,13 @@ export class HeaderComponent implements OnInit {
       {
         label: 'STATISTICHE AREA',
         icon: '',
+        items: [
+          {
+            label: 'GRAFICI POPOLAZIONE',
+            icon: 'pi pi-chart-line',
+            routerLink: ['/grafici-popolazione-area'],
+          },
+        ],
       },
     ];
   }
