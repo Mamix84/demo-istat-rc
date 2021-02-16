@@ -1,5 +1,6 @@
 export class DatoStatistico{
   anno: number;
-  tipo: string;
+  indicatore: string;
+  sesso: string;
   valori: number[];
 }

@@ -6,10 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
-import { ComuneSingoloModule } from './comune-singolo/comune-singolo.module';
-import { ComuniMultipliModule } from './comuni-multipli/comuni-multipli.module';
-import { AreeModule } from './aree/aree.module';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,10 +16,7 @@ import { AreeModule } from './aree/aree.module';
     NoopAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    HomeModule,
-    ComuneSingoloModule,
-    ComuniMultipliModule,
-    AreeModule,
+    ViewsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

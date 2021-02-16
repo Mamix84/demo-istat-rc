@@ -13,7 +13,7 @@ export class PopolazioneTotaleService {
     let labels: string[];
     labels = [];
     for (let i = 0; i < comune.dati.length; i++) {
-      if (comune.dati[i].tipo === 'MF') {
+      if (comune.dati[i].sesso === 'MF') {
         labels.push(comune.dati[i].anno.toString());
       }
     }
@@ -23,7 +23,7 @@ export class PopolazioneTotaleService {
     totali = [];
     totali = [];
     for (let i = 0; i < comune.dati.length; i++) {
-      if (comune.dati[i].tipo === 'MF') {
+      if (comune.dati[i].sesso === 'MF') {
         let somma = 0;
         for (let j = 0; j < comune.dati[i].valori.length; j++) {
           somma += comune.dati[i].valori[j];

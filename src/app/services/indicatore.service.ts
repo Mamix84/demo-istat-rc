@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { PopolazioneElementareService } from '../comune-singolo/eta-scolare/services/popolazione-elementare.service';
-import { PopolazioneMaternaService } from '../comune-singolo/eta-scolare/services/popolazione-materna.service';
-import { PopolazioneMediaInferioreService } from '../comune-singolo/eta-scolare/services/popolazione-media-inferiore.service';
-import { PopolazioneMediaSuperioreService } from '../comune-singolo/eta-scolare/services/popolazione-media-superiore.service';
-import { PopolazioneNidoService } from '../comune-singolo/eta-scolare/services/popolazione-nido.service';
-import { PrevisionePopolazioneSingoloService } from '../comune-singolo/previsione-comune-singolo/services/previsione-popolazione-singolo.service';
-import { Previsione10PopolazioneSingoloService } from '../comune-singolo/previsione-comune-singolo/services/previsione10-popolazione-singolo.service';
-import { Previsione15PopolazioneSingoloService } from '../comune-singolo/previsione-comune-singolo/services/previsione15-popolazione-singolo.service';
-import { Previsione20PopolazioneSingoloService } from '../comune-singolo/previsione-comune-singolo/services/previsione20-popolazione-singolo.service';
-import { Previsione5PopolazioneSingoloService } from '../comune-singolo/previsione-comune-singolo/services/previsione5-popolazione-singolo.service';
+
 import { Comune } from '../model/comune';
+import { PopolazioneElementareService } from '../views/comune-singolo/eta-scolare/services/popolazione-elementare.service';
+import { PopolazioneMaternaService } from '../views/comune-singolo/eta-scolare/services/popolazione-materna.service';
+import { PopolazioneMediaInferioreService } from '../views/comune-singolo/eta-scolare/services/popolazione-media-inferiore.service';
+import { PopolazioneMediaSuperioreService } from '../views/comune-singolo/eta-scolare/services/popolazione-media-superiore.service';
+import { PopolazioneNidoService } from '../views/comune-singolo/eta-scolare/services/popolazione-nido.service';
+import { PrevisionePopolazioneSingoloService } from '../views/comune-singolo/previsione-comune-singolo/services/previsione-popolazione-singolo.service';
+import { Previsione10PopolazioneSingoloService } from '../views/comune-singolo/previsione-comune-singolo/services/previsione10-popolazione-singolo.service';
+import { Previsione15PopolazioneSingoloService } from '../views/comune-singolo/previsione-comune-singolo/services/previsione15-popolazione-singolo.service';
+import { Previsione20PopolazioneSingoloService } from '../views/comune-singolo/previsione-comune-singolo/services/previsione20-popolazione-singolo.service';
+import { Previsione5PopolazioneSingoloService } from '../views/comune-singolo/previsione-comune-singolo/services/previsione5-popolazione-singolo.service';
 import { IndiceFertilitaService } from './indice-fertilita.service';
 import { PopolazioneFemminileService } from './popolazione-femminile.service';
 import { PopolazioneMaschileService } from './popolazione-maschile.service';
@@ -20,6 +21,7 @@ import { TassoNatalitaService } from './tasso-natalita.service';
   providedIn: 'root',
 })
 export class IndicatoreService {
+  [x: string]: any;
   constructor(
     private popolazioneFemminile: PopolazioneFemminileService,
     private popolazioneMaschile: PopolazioneMaschileService,

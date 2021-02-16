@@ -1,0 +1,16 @@
+{
+  "listaDominio": [
+    {
+      "codice": "M",
+      "denominazione": "MASCHI"
+    },
+    {
+      "codice": "F",
+      "denominazione": "FEMMINE"
+    },
+    {
+      "codice": "MF",
+      "denominazione": "MASCHI+FEMMINE"
+    }
+  ]
+}

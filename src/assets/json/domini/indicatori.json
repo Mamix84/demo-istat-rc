@@ -1,0 +1,32 @@
+{
+  "listaDominio": [
+    {
+      "codice": "POP",
+      "denominazione": "POPOLAZIONE RESIDENTE"
+    },
+    {
+      "codice": "NAT",
+      "denominazione": "NATI"
+    },
+    {
+      "codice": "MOR",
+      "denominazione": "MORTI"
+    },
+    {
+      "codice": "IAC",
+      "denominazione": "ISCRITTI DA ALTRI COMUNI"
+    },
+    {
+      "codice": "CAC",
+      "denominazione": "CANCELLATI PER ALTRI COMUNI"
+    },
+    {
+      "codice": "IDE",
+      "denominazione": "ISCRITTI DALL'ESTERO"
+    },
+    {
+      "codice": "CPE",
+      "denominazione": "CANCELLATI PER L'ESTERO"
+    }
+  ]
+}

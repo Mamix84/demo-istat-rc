@@ -9,9 +9,10 @@ import { GraficoLineeComponent } from './grafico-linee/grafico-linee.component';
 import { ChartModule } from 'primeng/chart';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
+import { TieredMenuModule } from 'primeng/tieredmenu';
+import { DropdownModule } from 'primeng/dropdown';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import {BreadcrumbModule} from 'primeng/breadcrumb';
-import {TieredMenuModule} from 'primeng/tieredmenu';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
@@ -23,8 +24,9 @@ import {TieredMenuModule} from 'primeng/tieredmenu';
     PanelModule,
     ChartModule,
     ToastModule,
+    TieredMenuModule,
+    DropdownModule,
     BreadcrumbModule,
-    TieredMenuModule
   ],
   exports: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
 })

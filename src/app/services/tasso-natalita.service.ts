@@ -14,7 +14,7 @@ export class TassoNatalitaService {
     labels = [];
     for (let i = 0; i < comune.dati.length; i++) {
       if (
-        comune.dati[i].tipo === 'MF' &&
+        comune.dati[i].sesso === 'MF' &&
         comune.dati[i].anno > 1982
       ) {
         labels.push(comune.dati[i].anno.toString());
@@ -26,7 +26,7 @@ export class TassoNatalitaService {
     totali = [];
     for (let i = 0; i < comune.dati.length; i++) {
       if (
-        comune.dati[i].tipo === 'MF' &&
+        comune.dati[i].sesso === 'MF' &&
         comune.dati[i].anno > 1982
       ) {
         //ANNO CORRENTE

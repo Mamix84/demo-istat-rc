@@ -12,7 +12,7 @@ export class IndiceFertilitaService {
     let labels: string[];
     labels = [];
     for (let i = 0; i < comune.dati.length; i++) {
-      if (comune.dati[i].tipo === 'MF') {
+      if (comune.dati[i].sesso === 'MF') {
         labels.push(comune.dati[i].anno.toString());
       }
     }
@@ -21,7 +21,7 @@ export class IndiceFertilitaService {
 
     totali = [];
     for (let i = 0; i < comune.dati.length; i++) {
-      if (comune.dati[i].tipo === 'MF') {
+      if (comune.dati[i].sesso === 'MF') {
         let somma = 0;
         let fascia0 = comune.dati[i].valori[0];
         for (let j = 14; j < 50; j++) {
