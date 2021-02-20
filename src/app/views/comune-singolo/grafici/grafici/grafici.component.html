@@ -9,16 +9,14 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>COMUNE:</h4>
-          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="SELEZIONE UN COMUNE"
-            [filter]="true" (onChange)="caricaStoricoComune()">
-          </p-dropdown>
+          <app-dropdown-service [label]="'COMUNE'" [placeholder]="'SELEZIONA UN COMUNE'"
+            (itemSelezionatoEvent)="comuneSelezionatoEvent($event)">
+          </app-dropdown-service>
         </div>
         <div class="p-col">
-          <h4>SESSO:</h4>
-          <p-multiSelect [options]="sessi" [(ngModel)]="sessiSelezionati" placeholder="SELEZIONE SESSO" [filter]="false"
-            (onChange)="caricaStoricoComune()" [disabled]="comuneSelezionato === undefined">
-          </p-multiSelect>
+          <app-multiselect-service [label]="'SESSI'" [placeholder]="'SELEZIONA UN SESSO'"
+            (itemSelezionatiEvent)="sessiSelezionatiEvent($event)">
+          </app-multiselect-service>
         </div>
       </div>
     </p-panel>
@@ -28,8 +26,7 @@
 <div class="p-grid" *ngIf="sessiSelezionati.length >0">
   <div class="p-col-12 p-md-12">
     <p-panel header="ANDAMENTO">
-      <p-toast [style]="{marginTop: '80px'}"></p-toast>
-      <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)"></p-chart>
+      <app-single-line-chart [label]="'POPOLAZIONE'" [comune]="comuneFiltered" [interpolazione]="true"></app-single-line-chart>
     </p-panel>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="p-grid">
+  <div class="p-col">
+    <h4>{{label}}</h4>
+    <p-multiSelect [options]="listaItem" [(ngModel)]="itemsSelezionati" placeholder="{{placeholder}}"
+      [disabled]="disabled" [filter]="filter" (onChange)="onChangeEvent()">
+    </p-multiSelect>
+  </div>
+</div>

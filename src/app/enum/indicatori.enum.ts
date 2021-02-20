@@ -1,0 +1,9 @@
+export enum Indicatori{
+  POPOLAZIONE = 'POP',
+  NATI = 'NAT',
+  MORTI = 'MOR',
+  ISCRITTI_COMUNE = 'IAC',
+  CANCELLATI_COMUNE = 'CAC',
+  ISCRITTI_ESTERO = 'IDE',
+  CANCELLATI_ESTERO = 'CPE'
+}

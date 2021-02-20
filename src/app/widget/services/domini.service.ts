@@ -18,6 +18,10 @@ export class DominiService {
         path = 'sessi';
         break;
       }
+      case 'SESSI': {
+        path = 'sessi';
+        break;
+      }
       case 'COMUNE': {
         path = 'comuni';
         break;

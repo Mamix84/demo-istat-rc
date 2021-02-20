@@ -1,21 +1,21 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Dominio } from 'src/app/model/dominio';
 import { DominiService } from '../services/domini.service';
 
 @Component({
-  selector: 'app-dropdown-service',
-  templateUrl: './dropdown-service.component.html',
-  styleUrls: ['./dropdown-service.component.scss']
+  selector: 'app-multiselect-service',
+  templateUrl: './multiselect-service.component.html',
+  styleUrls: ['./multiselect-service.component.scss'],
 })
-export class DropdownServiceComponent implements OnInit {
-
+export class MultiselectServiceComponent implements OnInit {
   listaItem: any[];
-  itemSelezionato: string;
+  itemsSelezionati: string;
 
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() disabled: boolean;
-  @Output() itemSelezionatoEvent = new EventEmitter<string>();
+  @Input() disabled: boolean = false;
+  @Input() filter: boolean = false;
+  @Output() itemSelezionatiEvent = new EventEmitter<string>();
 
   constructor(private dominiService: DominiService) {
     this.listaItem = [];
@@ -35,8 +35,7 @@ export class DropdownServiceComponent implements OnInit {
     });
   }
 
-  onChangeEvent(){
-    this.itemSelezionatoEvent.emit(this.itemSelezionato);
+  onChangeEvent() {
+    this.itemSelezionatiEvent.emit(this.itemsSelezionati);
   }
-
 }

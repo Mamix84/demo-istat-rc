@@ -11,7 +11,7 @@
         <div class="p-col">
           <app-dropdown-service [label]="'COMUNE'" [placeholder]="'SELEZIONA UN COMUNE'"
             (itemSelezionatoEvent)="comuneSelezionatoEvent($event)">
-        </app-dropdown-service>
+          </app-dropdown-service>
         </div>
       </div>
     </p-panel>
@@ -21,6 +21,24 @@
 <div class="p-grid">
   <div class="p-col-12 p-md-12">
     <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-12">
+          <div class="p-grid">
+            <div class="p-col-4">
+              <h5>MASCHI</h5>
+              <p-knob [(ngModel)]="maschi" [min]="0" [max]="totale"></p-knob>
+            </div>
+            <div class="p-col-4">
+              <h5>FEMMINE</h5>
+              <p-knob [(ngModel)]="femmine" [min]="0" [max]="totale"></p-knob>
+            </div>
+            <div class="p-col-4">
+              <h5>TOTALE</h5>
+              <p-knob [(ngModel)]="totale" [min]="0" [max]="totale"></p-knob>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
           <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPM'" [indicatoreLabel]="'POPOLAZIONE MASCHILE'"
