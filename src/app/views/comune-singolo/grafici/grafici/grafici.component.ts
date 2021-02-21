@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService, SelectItem } from 'primeng/api';
-import { ComuniService } from 'src/app/domini-services/comuni.service';
 import { Indicatori } from 'src/app/enum/indicatori.enum';
 import { Comune } from 'src/app/model/comune';
 import { ComuneService } from 'src/app/services/comune.service';
@@ -9,14 +7,13 @@ import { ComuneService } from 'src/app/services/comune.service';
   selector: 'app-grafici',
   templateUrl: './grafici.component.html',
   styleUrls: ['./grafici.component.scss'],
-  providers: [MessageService],
 })
 export class GraficiComponent implements OnInit {
   comuneSelezionato: string;
   sessiSelezionati: string[];
 
   comune: Comune;
-  comuneFiltered: Comune;
+  listaComuniFiltered: Comune[];
 
   menuItem = [
     { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
@@ -24,11 +21,10 @@ export class GraficiComponent implements OnInit {
   ];
 
   constructor(
-    private comuniService: ComuniService,
-    private messageService: MessageService,
     private comuneService: ComuneService
   ) {
     this.sessiSelezionati = [];
+    this.listaComuniFiltered = [];
   }
 
   ngOnInit(): void {}
@@ -47,15 +43,22 @@ export class GraficiComponent implements OnInit {
   comuneSelezionatoEvent(comune: string) {
     this.comuneSelezionato = comune;
 
+    this.sessiSelezionati = [];
+
     this.caricaDatiComune();
   }
 
   sessiSelezionatiEvent(sessi: string[]) {
     this.sessiSelezionati = sessi;
 
-    this.comuneFiltered = this.comuneService.filtroSesso(
-      this.comune,
-      this.sessiSelezionati
-    );
+    let listaComuniFilteredTemp = [];
+
+    for (let i = 0; i < this.sessiSelezionati.length; i++) {
+      listaComuniFilteredTemp.push(
+        this.comuneService.filtroSesso(this.comune, [this.sessiSelezionati[i]])
+      );
+    }
+
+    this.listaComuniFiltered = listaComuniFilteredTemp;
   }
 }

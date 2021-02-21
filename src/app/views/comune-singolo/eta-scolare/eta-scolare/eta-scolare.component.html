@@ -9,14 +9,9 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>COMUNE:</h4>
-        </div>
-      </div>
-      <div class="p-grid">
-        <div class="p-col">
-          <p-dropdown [options]="comuni" [(ngModel)]="comuneSelezionato" placeholder="SELEZIONA UN COMUNE"
-            [filter]="true" (onChange)="caricaStoricoComune()">
-          </p-dropdown>
+          <app-dropdown-service [label]="'COMUNE'" [placeholder]="'SELEZIONA UN COMUNE'"
+            (itemSelezionatoEvent)="comuneSelezionatoEvent($event)">
+          </app-dropdown-service>
         </div>
       </div>
     </p-panel>
@@ -28,26 +23,26 @@
     <p-panel header="POPOLAZIONE ETA SCOLARE" *ngIf="comuneSelezionato != undefined">
       <div class="p-grid">
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'NIDO'" [indicatoreLabel]="'ASILO NIDO'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'ASILO NIDO'" [comune]="popNidoFiltered" [interpolazione]="true">
+          </app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMA'" [indicatoreLabel]="'SCUOLA MATERNA'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'SCUOLA MATERNA'" [comune]="popMaternaFiltered" [interpolazione]="true">
+          </app-single-line-chart>
         </div>
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCEM'" [indicatoreLabel]="'SCUOLA ELEMENTARE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'SCUOLA ELEMENTARE'" [comune]="popElementareFiltered" [interpolazione]="true">
+          </app-single-line-chart>
         </div>
         <div class="p-col-12 p-sm-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMI'" [indicatoreLabel]="'SCUOLA MEDIA INFERIORE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'SCUOLA MEDIA INFERIORE'" [comune]="popMediaFiltered" [interpolazione]="true">
+          </app-single-line-chart>
         </div>
         <div class="p-col-12 p-sm-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'SCMS'" [indicatoreLabel]="'SCUOLA MEDIA SUPERIORE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'SCUOLA MEDIA SUPERIORE'" [comune]="popSuperioreFiltered"
+            [interpolazione]="true"></app-single-line-chart>
         </div>
       </div>
     </p-panel>

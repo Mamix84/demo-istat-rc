@@ -1,0 +1,7 @@
+<p-panel header="{{this.label}}">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-12 p-m-0 p-m-md-2 p-p-1 p-p-md-0">
+      <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)" [responsive]="true"></p-chart>
+    </div>
+  </div>
+</p-panel>

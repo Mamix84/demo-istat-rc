@@ -7,6 +7,7 @@ import { Comune } from 'src/app/model/comune';
   selector: 'app-single-line-chart',
   templateUrl: './single-line-chart.component.html',
   styleUrls: ['./single-line-chart.component.scss'],
+  providers: [MessageService],
 })
 export class SingleLineChartComponent implements OnInit, OnChanges {
   @Input() comune: Comune;
@@ -28,6 +29,9 @@ export class SingleLineChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (this.comune === undefined) return;
+
+
     this.datasets = [];
 
     //ANDAMENTO

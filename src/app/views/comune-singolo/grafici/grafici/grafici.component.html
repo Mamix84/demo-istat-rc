@@ -15,7 +15,7 @@
         </div>
         <div class="p-col">
           <app-multiselect-service [label]="'SESSI'" [placeholder]="'SELEZIONA UN SESSO'"
-            (itemSelezionatiEvent)="sessiSelezionatiEvent($event)">
+            (itemSelezionatiEvent)="sessiSelezionatiEvent($event)" [itemsSelezionati]="sessiSelezionati">
           </app-multiselect-service>
         </div>
       </div>
@@ -26,7 +26,7 @@
 <div class="p-grid" *ngIf="sessiSelezionati.length >0">
   <div class="p-col-12 p-md-12">
     <p-panel header="ANDAMENTO">
-      <app-single-line-chart [label]="'POPOLAZIONE'" [comune]="comuneFiltered" [interpolazione]="true"></app-single-line-chart>
+      <app-multi-line-chart [label]="'POPOLAZIONE'" [listaComuni]="listaComuniFiltered" [interpolazione]="false"></app-multi-line-chart>
     </p-panel>
   </div>
 </div>

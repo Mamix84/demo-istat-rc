@@ -9,13 +9,13 @@ import { DominiService } from '../services/domini.service';
 })
 export class MultiselectServiceComponent implements OnInit {
   listaItem: any[];
-  itemsSelezionati: string;
+  @Input() itemsSelezionati: string[];
 
   @Input() label: string;
   @Input() placeholder: string;
   @Input() disabled: boolean = false;
   @Input() filter: boolean = false;
-  @Output() itemSelezionatiEvent = new EventEmitter<string>();
+  @Output() itemSelezionatiEvent = new EventEmitter<string[]>();
 
   constructor(private dominiService: DominiService) {
     this.listaItem = [];
@@ -24,7 +24,6 @@ export class MultiselectServiceComponent implements OnInit {
   ngOnInit(): void {
     this.dominiService.caricaListaDominio(this.label).then((data) => {
       let response: any = data;
-      this.listaItem.push({ label: 'NESSUN FILTRO', value: undefined });
       for (let i = 0; i < response.listaDominio.length; i++) {
         let dominioTemp: Dominio = response.listaDominio[i];
         this.listaItem.push({

@@ -108,4 +108,28 @@ export class ComuneService {
 
     return 0;
   }
+
+  filtroEta(
+    comune: Comune,
+    sesso: string,
+    etaMin: number,
+    etaMax: number
+  ): Comune {
+    let comuneFiltered: Comune = new Comune();
+
+    comuneFiltered.codice = comune.codice;
+    comuneFiltered.denominazione = comune.denominazione;
+    comuneFiltered.dati = [];
+
+    for (let i = 0; i < comune.dati.length; i++) {
+      if (sesso === comune.dati[i].sesso) {
+        let index = comuneFiltered.dati.push( Object.assign(new DatoStatistico(), comune.dati[i]));
+        comuneFiltered.dati[index - 1].valori = comuneFiltered.dati[
+          index - 1
+        ].valori.slice(etaMin, etaMax);
+      }
+    }
+
+    return comuneFiltered;
+  }
 }

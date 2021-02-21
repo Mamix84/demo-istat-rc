@@ -41,16 +41,16 @@
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPM'" [indicatoreLabel]="'POPOLAZIONE MASCHILE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'POPOLAZIONE MASCHILE'" [comune]="comunePopMaschileFiltered"
+          [interpolazione]="true"></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPF'" [indicatoreLabel]="'POPOLAZIONE FEMMINILE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'POPOLAZIONE FEMMINILE'" [comune]="comunePopFemminileFiltered"
+          [interpolazione]="true"></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [comune]="storicoComune" [indicatore]="'POPMF'" [indicatoreLabel]="'POPOLAZIONE TOTALE'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-single-line-chart [label]="'POPOLAZIONE TOTALE'" [comune]="comunePopTotaleFiltered"
+          [interpolazione]="true"></app-single-line-chart>
         </div>
       </div>
       <div class="p-grid">
