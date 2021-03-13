@@ -1,18 +1,18 @@
-<p-panel header="{{this.indicatoreLabel}}">
+<p-panel header="{{this.label}}">
   <div class="p-grid">
     <div class="p-col-12 p-md-12 p-m-0 p-m-md-2 p-p-1 p-p-md-0">
-      <p-chart type="line" [data]="andamento" (onDataSelect)="selectData($event)" [responsive]="true"></p-chart>
+      <p-chart type="bar" [data]="andamento" (onDataSelect)="selectData($event)" [responsive]="true"></p-chart>
     </div>
   </div>
-  <div *ngIf="this.listaComuni == undefined || this.listaComuni.length < 1 || hiddenstat == true">
+  <div>
     <div class="p-grid">
       <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
-        <h4>{{this.indicatoreLabel}} (anno {{this.annoInizio}}): {{this.primoAnno}}</h4>
+        <h4>{{this.label}} (anno {{this.annoInizio}}): {{this.primoAnno}}</h4>
       </div>
     </div>
     <div class="p-grid">
       <div class="p-col p-m-0 p-m-md-2 p-p-1 p-p-md-0">
-        <h4>{{this.indicatoreLabel}} (anno {{this.annoFine}}): {{this.ultimoAnno}}</h4>
+        <h4>{{this.label}} (anno {{this.annoFine}}): {{this.ultimoAnno}}</h4>
       </div>
     </div>
     <div class="p-grid">

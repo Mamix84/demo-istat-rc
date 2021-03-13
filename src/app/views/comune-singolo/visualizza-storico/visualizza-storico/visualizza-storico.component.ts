@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { ComuniService } from 'src/app/domini-services/comuni.service';
+import { Indicatori } from 'src/app/enum/indicatori.enum';
 import { Comune } from 'src/app/model/comune';
+import { ComuneService } from 'src/app/services/comune.service';
 
 @Component({
   selector: 'app-visualizza-storico',
@@ -24,7 +25,7 @@ export class VisualizzaStoricoComponent implements OnInit {
     { label: 'VISUALIZZA STORICO' },
   ];
 
-  constructor(private comuniService: ComuniService) {
+  constructor(private comuneService: ComuneService) {
     this.storicoComune = new Comune();
     this.storicoComune.dati = [];
     this.anni = [];
@@ -41,8 +42,8 @@ export class VisualizzaStoricoComponent implements OnInit {
   }
 
   caricaStoricoComune() {
-    this.comuniService
-      .caricaStoricoComune(this.comuneSelezionato)
+    this.comuneService
+      .caricaDati(this.comuneSelezionato, Indicatori.POPOLAZIONE)
       .then((data) => {
         let response: any = data;
         let storicoComuneResp: Comune = response;

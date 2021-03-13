@@ -5,6 +5,7 @@ import { EtaScolareModule } from './eta-scolare/eta-scolare.module';
 import { GraficiModule } from './grafici/grafici.module';
 import { StatisticheModule } from './statistiche/statistiche.module';
 import { PrevisioneComuneSingoloModule } from './previsione-comune-singolo/previsione-comune-singolo.module';
+import { AndamentoDemograficoComuneSingoloModule } from './andamento-demografico-comune-singolo/andamento-demografico-comune-singolo.module';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { PrevisioneComuneSingoloModule } from './previsione-comune-singolo/previ
     GraficiModule,
     StatisticheModule,
     PrevisioneComuneSingoloModule,
+    AndamentoDemograficoComuneSingoloModule
   ],
 })
 export class ComuneSingoloModule {}

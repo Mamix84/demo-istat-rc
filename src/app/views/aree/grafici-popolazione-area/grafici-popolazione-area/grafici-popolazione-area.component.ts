@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService, SelectItem } from 'primeng/api';
 import { Comune } from 'src/app/model/comune';
-import { AreeService } from 'src/app/domini-services/aree.service';
-import { ComuniService } from 'src/app/domini-services/comuni.service';
+import { ComuneService } from 'src/app/services/comune.service';
+import { Indicatori } from 'src/app/enum/indicatori.enum';
+import { DominiService } from 'src/app/widget/services/domini.service';
 
 @Component({
   selector: 'app-grafici-popolazione-area',
@@ -12,15 +13,13 @@ import { ComuniService } from 'src/app/domini-services/comuni.service';
 })
 export class GraficiPopolazioneAreaComponent implements OnInit {
   sessoSelezionato: string;
-  sessi: SelectItem[];
   storicoComune: Comune;
 
   andamento: any;
   andamentoTotale: any;
 
-  aree: SelectItem[];
   areaSelezionata: string;
-  denominazioneArea : string;
+  denominazioneArea: string;
 
   datasets: any[];
   datasetsTotale: any[];
@@ -29,117 +28,94 @@ export class GraficiPopolazioneAreaComponent implements OnInit {
   menuItem = [{ label: 'STATISTICHE AREA' }, { label: 'GRAFICI POPOLAZIONE' }];
 
   constructor(
-    private comuniService: ComuniService,
+    private comuneService: ComuneService,
     private messageService: MessageService,
-    private areeService: AreeService
+    private dominiService: DominiService
   ) {
-    this.aree = [];
     this.storicoComune = new Comune();
     this.storicoComune.dati = [];
-    this.sessi = [];
     this.andamento = { labels: [], datasets: [] };
     this.datasets = [];
     this.datasetsTotale = [];
     this.totaliArea = [];
   }
 
-  ngOnInit(): void {
-    // COMUNI
-    this.areeService.caricaListaAree().then((data) => {
-      let response: any = data;
-      this.aree.push({ label: 'NESSUN FILTRO', value: undefined });
-      for (let i = 0; i < response.listaAree.length; i++) {
-        let areaTemp: Comune = response.listaAree[i];
-        this.aree.push({
-          value: areaTemp.codice,
-          label: areaTemp.denominazione.toUpperCase(),
-        });
-      }
-    });
-
-    //SESSI
-    this.sessi.push({ value: 'M', label: 'MASCHI' });
-    this.sessi.push({ value: 'F', label: 'FEMMINE' });
-    this.sessi.push({ value: 'MF', label: 'MASCHI+FEMMINE' });
-  }
+  ngOnInit(): void {}
 
   caricaStoricoArea() {
     this.datasets = [];
     this.datasetsTotale = [];
     this.totaliArea = [];
-    // COMUNI
-    this.comuniService.caricaListaComuni().then((data) => {
+
+    this.dominiService.caricaListaDominio('COMUNI').then((data) => {
       let response: any = data;
 
-      for (let i = 0; i < response.listaComuni.length; i++) {
-        let comuneTemp: Comune = response.listaComuni[i];
+      for (let i = 0; i < response.listaDominio.length; i++) {
+        let comuneTemp: Comune = response.listaDominio[i];
         if (comuneTemp.area === this.areaSelezionata) {
           this.caricaStoricoComune(comuneTemp.codice, comuneTemp.denominazione);
         }
       }
     });
 
-    for(let i=0;i<this.aree.length;i++){
-      if(this.aree[i].value === this.areaSelezionata){
-        this.denominazioneArea = this.aree[i].label;
-      }
-    }
   }
 
   caricaStoricoComune(comuneSelezionato: string, denominazione: string) {
-    this.comuniService.caricaStoricoComune(comuneSelezionato).then((data) => {
-      let response: any = data;
-      let storicoComuneTemp: Comune = response;
+    this.comuneService
+      .caricaDati(comuneSelezionato, Indicatori.POPOLAZIONE)
+      .then((data) => {
+        let response: any = data;
+        let storicoComuneTemp: Comune = response;
 
-      this.storicoComune.codice = storicoComuneTemp.codice;
-      this.storicoComune.denominazione = this.storicoComune.denominazione;
-      this.storicoComune.dati = [];
+        this.storicoComune.codice = storicoComuneTemp.codice;
+        this.storicoComune.denominazione = this.storicoComune.denominazione;
+        this.storicoComune.dati = [];
 
-      for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
-        if (this.sessoSelezionato === storicoComuneTemp.dati[i].sesso) {
-          this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
-        }
-      }
-
-      //ANDAMENTO
-      let labels: string[];
-      labels = [];
-      for (let i = 0; i < this.storicoComune.dati.length; i++) {
-        if (this.storicoComune.dati[i].sesso === this.sessoSelezionato) {
-          labels.push(this.storicoComune.dati[i].anno.toString());
-        }
-      }
-
-      let totali: any[];
-      totali = [];
-      for (let i = 0; i < this.storicoComune.dati.length; i++) {
-        if (this.storicoComune.dati[i].sesso === this.sessoSelezionato) {
-          let somma = 0;
-          for (let j = 0; j < this.storicoComune.dati[i].valori.length; j++) {
-            somma += this.storicoComune.dati[i].valori[j];
+        for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
+          if (this.sessoSelezionato === storicoComuneTemp.dati[i].sesso) {
+            this.storicoComune.dati.push(storicoComuneTemp.dati[i]);
           }
-          totali.push(somma);
         }
-      }
 
-      //COLOR
-      let letters = '0123456789ABCDEF';
-      let color = '#';
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
+        //ANDAMENTO
+        let labels: string[];
+        labels = [];
+        for (let i = 0; i < this.storicoComune.dati.length; i++) {
+          if (this.storicoComune.dati[i].sesso === this.sessoSelezionato) {
+            labels.push(this.storicoComune.dati[i].anno.toString());
+          }
+        }
 
-      this.datasets.push({
-        label: denominazione.toUpperCase(),
-        data: totali,
-        fill: false,
-        borderColor: color,
+        let totali: any[];
+        totali = [];
+        for (let i = 0; i < this.storicoComune.dati.length; i++) {
+          if (this.storicoComune.dati[i].sesso === this.sessoSelezionato) {
+            let somma = 0;
+            for (let j = 0; j < this.storicoComune.dati[i].valori.length; j++) {
+              somma += this.storicoComune.dati[i].valori[j];
+            }
+            totali.push(somma);
+          }
+        }
+
+        //COLOR
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        this.datasets.push({
+          label: denominazione.toUpperCase(),
+          data: totali,
+          fill: false,
+          borderColor: color,
+        });
+
+        this.andamento = { labels: labels, datasets: this.datasets };
+
+        this.aggiornaDatasetArea(totali);
       });
-
-      this.andamento = { labels: labels, datasets: this.datasets };
-
-      this.aggiornaDatasetArea(totali);
-    });
   }
 
   aggiornaDatasetArea(totali: any[]) {
@@ -166,11 +142,9 @@ export class GraficiPopolazioneAreaComponent implements OnInit {
         fill: false,
         borderColor: color,
       });
-
-
     } else {
       this.datasetsTotale[0] = {
-        label: 'AREA ' + this.denominazioneArea,
+        label: 'POPOLAZIONE AREA ',
         data: this.totaliArea,
         fill: true,
         borderColor: color,
@@ -179,7 +153,7 @@ export class GraficiPopolazioneAreaComponent implements OnInit {
 
     this.andamentoTotale = {
       labels: this.andamento === undefined ? [] : this.andamento.labels,
-      datasets: this.datasetsTotale
+      datasets: this.datasetsTotale,
     };
   }
 
@@ -191,5 +165,17 @@ export class GraficiPopolazioneAreaComponent implements OnInit {
         event.element._index
       ],
     });
+  }
+
+  areaSelezionataEvent(event: any) {
+    this.areaSelezionata = event;
+
+    this.caricaStoricoArea();
+  }
+
+  sessoSelezionatoEvent(event: any) {
+    this.sessoSelezionato = event;
+
+    this.caricaStoricoArea();
   }
 }

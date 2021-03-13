@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfrontaComuniComponent } from './confronta-comuni.component';
+import { SingleBarChartComponent } from './single-bar-chart.component';
 
-describe('ConfrontaComuniComponent', () => {
-  let component: ConfrontaComuniComponent;
-  let fixture: ComponentFixture<ConfrontaComuniComponent>;
+describe('SingleBarChartComponent', () => {
+  let component: SingleBarChartComponent;
+  let fixture: ComponentFixture<SingleBarChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConfrontaComuniComponent ]
+      declarations: [ SingleBarChartComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfrontaComuniComponent);
+    fixture = TestBed.createComponent(SingleBarChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

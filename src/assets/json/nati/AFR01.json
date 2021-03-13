@@ -1,0 +1,594 @@
+{
+  "codice": "AFR01",
+  "denominazione": "Africo",
+  "dati": [
+    {
+      "anno": 1992,
+      "sesso": "M",
+      "valori": [
+        25
+      ]
+    },
+    {
+      "anno": 1993,
+      "sesso": "M",
+      "valori": [
+        33
+      ]
+    },
+    {
+      "anno": 1994,
+      "sesso": "M",
+      "valori": [
+        32
+      ]
+    },
+    {
+      "anno": 1995,
+      "sesso": "M",
+      "valori": [
+        21
+      ]
+    },
+    {
+      "anno": 1996,
+      "sesso": "M",
+      "valori": [
+        37
+      ]
+    },
+    {
+      "anno": 1997,
+      "sesso": "M",
+      "valori": [
+        35
+      ]
+    },
+    {
+      "anno": 1998,
+      "sesso": "M",
+      "valori": [
+        16
+      ]
+    },
+    {
+      "anno": 1999,
+      "sesso": "M",
+      "valori": [
+        22
+      ]
+    },
+    {
+      "anno": 2000,
+      "sesso": "M",
+      "valori": [
+        27
+      ]
+    },
+    {
+      "anno": 2001,
+      "sesso": "M",
+      "valori": [
+        25
+      ]
+    },
+    {
+      "anno": 2002,
+      "sesso": "M",
+      "valori": [
+        19
+      ]
+    },
+    {
+      "anno": 2003,
+      "sesso": "M",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 2004,
+      "sesso": "M",
+      "valori": [
+        19
+      ]
+    },
+    {
+      "anno": 2005,
+      "sesso": "M",
+      "valori": [
+        17
+      ]
+    },
+    {
+      "anno": 2006,
+      "sesso": "M",
+      "valori": [
+        29
+      ]
+    },
+    {
+      "anno": 2007,
+      "sesso": "M",
+      "valori": [
+        14
+      ]
+    },
+    {
+      "anno": 2008,
+      "sesso": "M",
+      "valori": [
+        20
+      ]
+    },
+    {
+      "anno": 2009,
+      "sesso": "M",
+      "valori": [
+        27
+      ]
+    },
+    {
+      "anno": 2010,
+      "sesso": "M",
+      "valori": [
+        16
+      ]
+    },
+    {
+      "anno": 2011,
+      "sesso": "M",
+      "valori": [
+        13
+      ]
+    },
+    {
+      "anno": 2012,
+      "sesso": "M",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 2013,
+      "sesso": "M",
+      "valori": [
+        29
+      ]
+    },
+    {
+      "anno": 2014,
+      "sesso": "M",
+      "valori": [
+        26
+      ]
+    },
+    {
+      "anno": 2015,
+      "sesso": "M",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2016,
+      "sesso": "M",
+      "valori": [
+        17
+      ]
+    },
+    {
+      "anno": 2017,
+      "sesso": "M",
+      "valori": [
+        27
+      ]
+    },
+    {
+      "anno": 2018,
+      "sesso": "M",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2019,
+      "sesso": "M",
+      "valori": [
+        21
+      ]
+    },
+    {
+      "anno": 1992,
+      "sesso": "F",
+      "valori": [
+        34
+      ]
+    },
+    {
+      "anno": 1993,
+      "sesso": "F",
+      "valori": [
+        31
+      ]
+    },
+    {
+      "anno": 1994,
+      "sesso": "F",
+      "valori": [
+        22
+      ]
+    },
+    {
+      "anno": 1995,
+      "sesso": "F",
+      "valori": [
+        30
+      ]
+    },
+    {
+      "anno": 1996,
+      "sesso": "F",
+      "valori": [
+        26
+      ]
+    },
+    {
+      "anno": 1997,
+      "sesso": "F",
+      "valori": [
+        16
+      ]
+    },
+    {
+      "anno": 1998,
+      "sesso": "F",
+      "valori": [
+        24
+      ]
+    },
+    {
+      "anno": 1999,
+      "sesso": "F",
+      "valori": [
+        20
+      ]
+    },
+    {
+      "anno": 2000,
+      "sesso": "F",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2001,
+      "sesso": "F",
+      "valori": [
+        17
+      ]
+    },
+    {
+      "anno": 2002,
+      "sesso": "F",
+      "valori": [
+        23
+      ]
+    },
+    {
+      "anno": 2003,
+      "sesso": "F",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2004,
+      "sesso": "F",
+      "valori": [
+        20
+      ]
+    },
+    {
+      "anno": 2005,
+      "sesso": "F",
+      "valori": [
+        19
+      ]
+    },
+    {
+      "anno": 2006,
+      "sesso": "F",
+      "valori": [
+        14
+      ]
+    },
+    {
+      "anno": 2007,
+      "sesso": "F",
+      "valori": [
+        12
+      ]
+    },
+    {
+      "anno": 2008,
+      "sesso": "F",
+      "valori": [
+        25
+      ]
+    },
+    {
+      "anno": 2009,
+      "sesso": "F",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 2010,
+      "sesso": "F",
+      "valori": [
+        13
+      ]
+    },
+    {
+      "anno": 2011,
+      "sesso": "F",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2012,
+      "sesso": "F",
+      "valori": [
+        15
+      ]
+    },
+    {
+      "anno": 2013,
+      "sesso": "F",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 2014,
+      "sesso": "F",
+      "valori": [
+        22
+      ]
+    },
+    {
+      "anno": 2015,
+      "sesso": "F",
+      "valori": [
+        12
+      ]
+    },
+    {
+      "anno": 2016,
+      "sesso": "F",
+      "valori": [
+        16
+      ]
+    },
+    {
+      "anno": 2017,
+      "sesso": "F",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 2018,
+      "sesso": "F",
+      "valori": [
+        12
+      ]
+    },
+    {
+      "anno": 2019,
+      "sesso": "F",
+      "valori": [
+        18
+      ]
+    },
+    {
+      "anno": 1992,
+      "sesso": "MF",
+      "valori": [
+        59
+      ]
+    },
+    {
+      "anno": 1993,
+      "sesso": "MF",
+      "valori": [
+        64
+      ]
+    },
+    {
+      "anno": 1994,
+      "sesso": "MF",
+      "valori": [
+        54
+      ]
+    },
+    {
+      "anno": 1995,
+      "sesso": "MF",
+      "valori": [
+        51
+      ]
+    },
+    {
+      "anno": 1996,
+      "sesso": "MF",
+      "valori": [
+        63
+      ]
+    },
+    {
+      "anno": 1997,
+      "sesso": "MF",
+      "valori": [
+        51
+      ]
+    },
+    {
+      "anno": 1998,
+      "sesso": "MF",
+      "valori": [
+        40
+      ]
+    },
+    {
+      "anno": 1999,
+      "sesso": "MF",
+      "valori": [
+        42
+      ]
+    },
+    {
+      "anno": 2000,
+      "sesso": "MF",
+      "valori": [
+        42
+      ]
+    },
+    {
+      "anno": 2001,
+      "sesso": "MF",
+      "valori": [
+        42
+      ]
+    },
+    {
+      "anno": 2002,
+      "sesso": "MF",
+      "valori": [
+        42
+      ]
+    },
+    {
+      "anno": 2003,
+      "sesso": "MF",
+      "valori": [
+        33
+      ]
+    },
+    {
+      "anno": 2004,
+      "sesso": "MF",
+      "valori": [
+        39
+      ]
+    },
+    {
+      "anno": 2005,
+      "sesso": "MF",
+      "valori": [
+        36
+      ]
+    },
+    {
+      "anno": 2006,
+      "sesso": "MF",
+      "valori": [
+        43
+      ]
+    },
+    {
+      "anno": 2007,
+      "sesso": "MF",
+      "valori": [
+        26
+      ]
+    },
+    {
+      "anno": 2008,
+      "sesso": "MF",
+      "valori": [
+        45
+      ]
+    },
+    {
+      "anno": 2009,
+      "sesso": "MF",
+      "valori": [
+        45
+      ]
+    },
+    {
+      "anno": 2010,
+      "sesso": "MF",
+      "valori": [
+        29
+      ]
+    },
+    {
+      "anno": 2011,
+      "sesso": "MF",
+      "valori": [
+        28
+      ]
+    },
+    {
+      "anno": 2012,
+      "sesso": "MF",
+      "valori": [
+        33
+      ]
+    },
+    {
+      "anno": 2013,
+      "sesso": "MF",
+      "valori": [
+        47
+      ]
+    },
+    {
+      "anno": 2014,
+      "sesso": "MF",
+      "valori": [
+        48
+      ]
+    },
+    {
+      "anno": 2015,
+      "sesso": "MF",
+      "valori": [
+        27
+      ]
+    },
+    {
+      "anno": 2016,
+      "sesso": "MF",
+      "valori": [
+        33
+      ]
+    },
+    {
+      "anno": 2017,
+      "sesso": "MF",
+      "valori": [
+        45
+      ]
+    },
+    {
+      "anno": 2018,
+      "sesso": "MF",
+      "valori": [
+        36
+      ]
+    },
+    {
+      "anno": 2019,
+      "sesso": "MF",
+      "valori": [
+        39
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<div class="p-grid">
+  <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
+</div>
+<div class="p-grid">
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <app-multiselect-service [label]="'COMUNI'" [placeholder]="'SELEZIONA ALMENO UN COMUNE'" [filter]="true"
+            (itemSelezionatiEvent)="comuniSelezionatiEvent($event)" [itemsSelezionati]="comuniSelezionati">
+          </app-multiselect-service>
+        </div>
+        <div class="p-col">
+          <app-dropdown-service [label]="'SESSI'" [placeholder]="'SELEZIONA UN SESSO'"
+            (itemSelezionatoEvent)="sessoSelezionatoEvent($event)">
+          </app-dropdown-service>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+
+<div class="p-grid" *ngIf="sessoSelezionato != undefined">
+  <div class="p-col-12 p-md-12">
+    <p-panel header="ANDAMENTO">
+      <app-multi-line-chart [listaComuni]="comuni" [label]="'POPOLAZIONE'" [interpolazione]="false"></app-multi-line-chart>
+    </p-panel>
+  </div>
+</div>

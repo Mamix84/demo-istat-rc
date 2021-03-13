@@ -1,9 +1,8 @@
-import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Component, OnInit, Output } from '@angular/core';
-import { SelectItem } from 'primeng/api';
-import { ComuniService } from 'src/app/domini-services/comuni.service';
+import { Component, OnInit } from '@angular/core';
+import { Indicatori } from 'src/app/enum/indicatori.enum';
+import { Sessi } from 'src/app/enum/sessi.enum';
 import { Comune } from 'src/app/model/comune';
-
+import { ComuneService } from 'src/app/services/comune.service';
 
 @Component({
   selector: 'app-eta-scolare-popolazione-multipli',
@@ -11,56 +10,96 @@ import { Comune } from 'src/app/model/comune';
   styleUrls: ['./eta-scolare-popolazione-multipli.component.scss'],
 })
 export class EtaScolarePopolazioneMultipliComponent implements OnInit {
-  comuniSelezionati: string;
-  comuni: SelectItem[];
-  @Output() storicoComuni: Comune[];
+  comuniSelezionati: string[];
+  comuniNido: Comune[];
+  comuniMaterna: Comune[];
+  comuniElementare: Comune[];
+  comuniMedia: Comune[];
+  comuniSuperiore: Comune[];
 
   menuItem = [
     { label: 'STATISTICHE POPOLAZIONE - COMUNI MULTIPLI' },
     { label: "CONFRONTO ETA' SCOLARE" },
   ];
 
-  constructor(private comuniService: ComuniService) {
-    this.comuni = [];
-    this.storicoComuni = [];
+  constructor(private comuneService: ComuneService) {
+    this.comuniSelezionati = [];
+    this.comuniNido = [];
+    this.comuniMaterna = [];
+    this.comuniElementare = [];
+    this.comuniMedia = [];
+    this.comuniSuperiore = [];
   }
 
-  ngOnInit(): void {
-    // COMUNI
-    this.comuniService.caricaListaComuni().then((data) => {
-      let response: any = data;
-      this.comuni.push({ label: 'NESSUN FILTRO', value: undefined });
-      for (let i = 0; i < response.listaComuni.length; i++) {
-        let comuneTemp: Comune = response.listaComuni[i];
-        this.comuni.push({
-          value: comuneTemp.codice,
-          label: comuneTemp.denominazione.toUpperCase(),
-        });
-      }
-    });
-  }
+  ngOnInit(): void {}
 
-  caricaStoricoComune() {
-    this.storicoComuni = [];
+  caricaDatiComune() {
+    let nido: Comune[];
+    nido = [];
+    let materna: Comune[];
+    materna = [];
+    let elementare: Comune[];
+    elementare = [];
+    let media: Comune[];
+    media = [];
+    let superiore: Comune[];
+    superiore = [];
+    this.comuniNido = [];
+    this.comuniMaterna = [];
+    this.comuniElementare = [];
+    this.comuniMedia = [];
+    this.comuniSuperiore = [];
 
     for (let i = 0; i < this.comuniSelezionati.length; i++) {
-      let listaStoricoComuniTemp = [];
-      this.comuniService
-        .caricaStoricoComune(this.comuniSelezionati[i])
+      this.comuneService
+        .caricaDati(this.comuniSelezionati[i], Indicatori.POPOLAZIONE)
         .then((data) => {
           let response: any = data;
           let storicoComuneTemp: Comune = response;
 
-          let storicoComune = new Comune();
-          storicoComune.dati = [];
-          storicoComune.denominazione = storicoComuneTemp.denominazione;
+          nido.push(
+            this.comuneService.filtroEta(storicoComuneTemp, Sessi.TOTALE, 0, 3)
+          );
 
-          for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
-            storicoComune.dati.push(storicoComuneTemp.dati[i]);
+          materna.push(
+            this.comuneService.filtroEta(storicoComuneTemp, Sessi.TOTALE, 3, 6)
+          );
+
+          elementare.push(
+            this.comuneService.filtroEta(storicoComuneTemp, Sessi.TOTALE, 6, 11)
+          );
+
+          media.push(
+            this.comuneService.filtroEta(
+              storicoComuneTemp,
+              Sessi.TOTALE,
+              11,
+              14
+            )
+          );
+
+          superiore.push(
+            this.comuneService.filtroEta(
+              storicoComuneTemp,
+              Sessi.TOTALE,
+              14,
+              19
+            )
+          );
+
+          if (i === this.comuniSelezionati.length - 1) {
+            this.comuniNido = nido;
+            this.comuniMaterna = materna;
+            this.comuniElementare = elementare;
+            this.comuniMedia = media;
+            this.comuniSuperiore = superiore;
           }
-
-          this.storicoComuni = this.storicoComuni.concat(storicoComune);
         });
     }
+  }
+  comuniSelezionatiEvent(event: any) {
+    this.comuniSelezionati = event;
+
+    this.caricaDatiComune();
   }
 }

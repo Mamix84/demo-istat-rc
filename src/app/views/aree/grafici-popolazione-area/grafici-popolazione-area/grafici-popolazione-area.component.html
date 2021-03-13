@@ -9,16 +9,14 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>COMUNE:</h4>
-          <p-dropdown [options]="aree" [(ngModel)]="areaSelezionata" placeholder="SELEZIONE UN'AREA"
-            [filter]="true" (onChange)="caricaStoricoArea()">
-          </p-dropdown>
+          <app-dropdown-service [label]="'AREA'" [placeholder]="'SELEZIONA AREA'"
+            (itemSelezionatoEvent)="areaSelezionataEvent($event)">
+          </app-dropdown-service>
         </div>
         <div class="p-col">
-          <h4>SESSO:</h4>
-          <p-dropdown [options]="sessi" [(ngModel)]="sessoSelezionato" placeholder="SELEZIONE SESSO" [filter]="false"
-            (onChange)="caricaStoricoArea()" [disabled]="areaSelezionata === undefined">
-          </p-dropdown>
+          <app-dropdown-service [label]="'SESSO'" [placeholder]="'SELEZIONA SESSO'"
+            (itemSelezionatoEvent)="sessoSelezionatoEvent($event)">
+          </app-dropdown-service>
         </div>
       </div>
     </p-panel>

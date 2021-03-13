@@ -26,6 +26,14 @@ export class DominiService {
         path = 'comuni';
         break;
       }
+      case 'COMUNI': {
+        path = 'comuni';
+        break;
+      }
+      case 'AREA': {
+        path = 'aree';
+        break;
+      }
     }
 
     return this.http

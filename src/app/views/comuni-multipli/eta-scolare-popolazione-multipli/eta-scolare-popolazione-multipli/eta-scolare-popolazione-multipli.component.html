@@ -9,13 +9,9 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>COMUNE:</h4>
-        </div>
-      </div>
-      <div class="p-grid">
-        <div class="p-col">
-          <p-multiSelect [options]="comuni" [(ngModel)]="comuniSelezionati" placeholder="SELEZIONA UNO O PIU' COMUNI"
-            [filter]="true" (onChange)="caricaStoricoComune()"></p-multiSelect>
+          <app-multiselect-service [label]="'COMUNI'" [placeholder]="'SELEZIONA ALMENO UN COMUNE'" [filter]="true"
+            (itemSelezionatiEvent)="comuniSelezionatiEvent($event)" [itemsSelezionati]="comuniSelezionati">
+          </app-multiselect-service>
         </div>
       </div>
     </p-panel>
@@ -27,26 +23,27 @@
     <p-panel header="POPOLAZIONE ETA SCOLARE" *ngIf="comuniSelezionati != undefined && comuniSelezionati.length > 0">
       <div class="p-grid">
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'NIDO'" [indicatoreLabel]="'ASILO NIDO'"
-            [interpolazione]="false"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniNido" [label]="'ASILO NIDO'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMA'" [indicatoreLabel]="'SCUOLA MATERNA'"
-            [interpolazione]="false"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniMaterna" [label]="'SCUOLA MATERNA'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCEM'" [indicatoreLabel]="'SCUOLA ELEMENTARE'"
-            [interpolazione]="false"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniElementare" [label]="'SCUOLA ELEMENTARE'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-sm-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMI'"
-            [indicatoreLabel]="'SCUOLA MEDIA INFERIORE'" [interpolazione]="false"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniMedia" [label]="'SCUOLA MEDIA INFERIORE'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-sm-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'SCMS'"
-            [indicatoreLabel]="'SCUOLA MEDIA SUPERIORE'" [interpolazione]="false"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniSuperiore" [label]="'SCUOLA MEDIA SUPERIORE'"
+            [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
       </div>
     </p-panel>

@@ -8,9 +8,14 @@
   <div class="p-col">
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
-        <div class="p-col">
+        <div class="p-col-6">
           <app-dropdown-service [label]="'COMUNE'" [placeholder]="'SELEZIONA UN COMUNE'"
             (itemSelezionatoEvent)="comuneSelezionatoEvent($event)">
+          </app-dropdown-service>
+        </div>
+        <div class="p-col-6">
+          <app-dropdown-service [label]="'INDICATORE'" [placeholder]="'SELEZIONA UN INDICATORE'"
+            (itemSelezionatoEvent)="indicatoreSelezionatoEvent($event)">
           </app-dropdown-service>
         </div>
       </div>
@@ -20,7 +25,8 @@
 
 <div class="p-grid">
   <div class="p-col-12 p-md-12">
-    <p-panel header="STATISTICHE" *ngIf="comuneSelezionato != undefined">
+    <p-panel header="STATISTICHE"
+      *ngIf="comuneSelezionato != undefined && indicatoreSelezionato != undefined">
       <div class="p-grid">
         <div class="p-col-12 p-md-12">
           <div class="p-grid">
@@ -41,24 +47,16 @@
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE MASCHILE'" [comune]="comunePopMaschileFiltered"
-            [interpolazione]="true"></app-single-line-chart>
+          <app-single-bar-chart [label]="'MASCHI'" [comune]="maschiFilter" [interpolazione]="true">
+          </app-single-bar-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE FEMMINILE'" [comune]="comunePopFemminileFiltered"
-            [interpolazione]="true"></app-single-line-chart>
+          <app-single-bar-chart [label]="'FEMMINE'" [comune]="femmineFilter" [interpolazione]="true">
+          </app-single-bar-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE TOTALE'" [comune]="comunePopTotaleFiltered"
-            [interpolazione]="true"></app-single-line-chart>
-        </div>
-      </div>
-      <div class="p-grid">
-        <div class="p-col-12 p-md-6">
-          <app-single-line-chart [label]="'INDICE FERTILITA'" [interpolazione]="true"></app-single-line-chart>
-        </div>
-        <div class="p-col-12 p-md-6">
-          <app-single-line-chart [label]="'TASSO NATALITA'" [interpolazione]="true"></app-single-line-chart>
+          <app-single-bar-chart [label]="'TOTALE'" [comune]="totaleFilter" [interpolazione]="true">
+          </app-single-bar-chart>
         </div>
       </div>
     </p-panel>

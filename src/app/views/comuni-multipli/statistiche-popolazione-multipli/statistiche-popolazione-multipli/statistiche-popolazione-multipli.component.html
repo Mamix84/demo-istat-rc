@@ -9,9 +9,9 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <h4>COMUNE:</h4>
-          <p-multiSelect [options]="comuni" [(ngModel)]="comuniSelezionati" placeholder="SELEZIONA UNO O PIU' COMUNI"
-            [filter]="true" (onChange)="caricaStoricoComune()"></p-multiSelect>
+          <app-multiselect-service [label]="'COMUNI'" [placeholder]="'SELEZIONA ALMENO UN COMUNE'" [filter]="true"
+            (itemSelezionatiEvent)="comuniSelezionatiEvent($event)" [itemsSelezionati]="comuniSelezionati">
+          </app-multiselect-service>
         </div>
       </div>
     </p-panel>
@@ -23,26 +23,26 @@
     <p-panel header="STATISTICHE" *ngIf="comuniSelezionati != undefined && comuniSelezionati.length > 0">
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'POPM'"
-            [indicatoreLabel]="'POPOLAZIONE MASCHILE'" [interpolazione]="true"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniM" [label]="'POPOLAZIONE MASCHILE'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'POPF'"
-            [indicatoreLabel]="'POPOLAZIONE FEMMINILE'" [interpolazione]="true"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniF" [label]="'POPOLAZIONE FEMMINILE'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'POPMF'"
-            [indicatoreLabel]="'POPOLAZIONE TOTALE'" [interpolazione]="true"></app-grafico-linee>
+          <app-multi-line-chart [listaComuni]="comuniT" [label]="'POPOLAZIONE TOTALE'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'FERT'" [indicatoreLabel]="'INDICE FERTILITA'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-multi-line-chart [label]="'INDICE FERTILITA'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
         <div class="p-col-12 p-md-6">
-          <app-grafico-linee [listaComuni]="storicoComuni" [indicatore]="'NATA'" [indicatoreLabel]="'TASSO NATALITA'"
-            [interpolazione]="true"></app-grafico-linee>
+          <app-multi-line-chart [label]="'TASSO NATALITA'" [interpolazione]="false">
+          </app-multi-line-chart>
         </div>
       </div>
     </p-panel>

@@ -5,7 +5,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
-import { GraficoLineeComponent } from './grafico-linee/grafico-linee.component';
 import { ChartModule } from 'primeng/chart';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
@@ -15,7 +14,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
+  declarations: [HeaderComponent, FooterComponent, BreadcrumbComponent],
   imports: [
     CommonModule,
     MenuModule,
@@ -28,6 +27,6 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     DropdownModule,
     BreadcrumbModule,
   ],
-  exports: [HeaderComponent, FooterComponent, GraficoLineeComponent, BreadcrumbComponent],
+  exports: [HeaderComponent, FooterComponent, BreadcrumbComponent],
 })
 export class SharedModule {}

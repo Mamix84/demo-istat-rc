@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
           {
             label: 'CONFRONTO GRAFICI POPOLAZIONE',
             icon: 'pi pi-chart-line',
-            routerLink: ['/confronta-comuni'],
+            routerLink: ['/grafici-popolazione-multipli'],
           },
           {
             label: "CONFRONTO ETA' SCOLARE",
@@ -73,6 +73,13 @@ export class HeaderComponent implements OnInit {
       {
         label: 'BILANCIO DEMOGRAFICO - COMUNI SINGOLI',
         icon: '',
+        items: [
+          {
+            label: 'ANDAMENTO DEMOGRAFICO',
+            icon: 'pi pi-list',
+            routerLink: ['/andamento-demografico-comune-singolo'],
+          },
+        ],
       },
       {
         label: 'BILANCIO DEMOGRAFICO - COMUNI MULTIPLI',

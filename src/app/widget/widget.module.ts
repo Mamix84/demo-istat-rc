@@ -13,6 +13,7 @@ import { Toast, ToastModule } from 'primeng/toast';
 import { Knob, KnobModule } from 'primeng/knob';
 import { GMap, GMapModule} from 'primeng/gmap';
 import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
+import { SingleBarChartComponent } from './single-bar-chart/single-bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.com
     MultiselectServiceComponent,
     SingleLineChartComponent,
     MultiLineChartComponent,
+    SingleBarChartComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.com
     DropdownServiceComponent,
     MultiselectServiceComponent,
     SingleLineChartComponent,
-    MultiLineChartComponent
+    MultiLineChartComponent,
+    SingleBarChartComponent
   ],
 })
 export class WidgetModule {}
