@@ -54,8 +54,7 @@ export class SingleLineChartComponent implements OnInit, OnChanges {
     this.ultimoAnno = totali[totali.length - 1];
     this.primoAnno = totali[0];
     this.variazionePercentuale = (
-      100 -
-      (this.primoAnno / this.ultimoAnno) * 100
+      ((this.ultimoAnno - this.primoAnno) / this.primoAnno) * 100
     ).toFixed(2);
     this.annoInizio = labels[0];
     this.annoFine = labels[labels.length - 1];
