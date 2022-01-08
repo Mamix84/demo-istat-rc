@@ -9,9 +9,38 @@
     <p-panel header="FILTRI DI RICERCA">
       <div class="p-grid">
         <div class="p-col">
-          <app-dropdown-service [label]="'COMUNE'" [placeholder]="'SELEZIONA UN COMUNE'"
-            (itemSelezionatoEvent)="comuneSelezionatoEvent($event)">
+          <app-dropdown-service
+            [label]="'COMUNE'"
+            [placeholder]="'SELEZIONA UN COMUNE'"
+            (itemSelezionatoEvent)="comuneSelezionatoEvent($event)"
+          >
           </app-dropdown-service>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
+          <h5>Filtro anno dal {{ rangeAnno[0] + " al " + rangeAnno[1] }}</h5>
+          <p-slider
+            [(ngModel)]="rangeAnno"
+            [range]="true"
+            [step]="1"
+            [min]="1982"
+            [max]="2021"
+            (onChange)="changeRange()"
+          ></p-slider>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col">
+          <h5>Filtro fascia età dal {{ rangeEta[0] + " al " + rangeEta[1] }}</h5>
+          <p-slider
+            [(ngModel)]="rangeEta"
+            [range]="true"
+            [step]="1"
+            [min]="1"
+            [max]="85"
+            (onChange)="changeRange()"
+          ></p-slider>
         </div>
       </div>
     </p-panel>
@@ -41,24 +70,39 @@
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE MASCHILE'" [comune]="comunePopMaschileFiltered"
-            [interpolazione]="true"></app-single-line-chart>
+          <app-single-line-chart
+            [label]="'POPOLAZIONE MASCHILE'"
+            [comune]="comunePopMaschileFiltered"
+            [interpolazione]="true"
+          ></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE FEMMINILE'" [comune]="comunePopFemminileFiltered"
-            [interpolazione]="true"></app-single-line-chart>
+          <app-single-line-chart
+            [label]="'POPOLAZIONE FEMMINILE'"
+            [comune]="comunePopFemminileFiltered"
+            [interpolazione]="true"
+          ></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-4">
-          <app-single-line-chart [label]="'POPOLAZIONE TOTALE'" [comune]="comunePopTotaleFiltered"
-            [interpolazione]="true"></app-single-line-chart>
+          <app-single-line-chart
+            [label]="'POPOLAZIONE TOTALE'"
+            [comune]="comunePopTotaleFiltered"
+            [interpolazione]="true"
+          ></app-single-line-chart>
         </div>
       </div>
       <div class="p-grid">
         <div class="p-col-12 p-md-6">
-          <app-single-line-chart [label]="'INDICE FERTILITA'" [interpolazione]="true"></app-single-line-chart>
+          <app-single-line-chart
+            [label]="'INDICE FERTILITA'"
+            [interpolazione]="true"
+          ></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-6">
-          <app-single-line-chart [label]="'TASSO NATALITA'" [interpolazione]="true"></app-single-line-chart>
+          <app-single-line-chart
+            [label]="'TASSO NATALITA'"
+            [interpolazione]="true"
+          ></app-single-line-chart>
         </div>
       </div>
     </p-panel>

@@ -54,7 +54,14 @@ export class ComuneService {
       });
   }
 
-  filtroSesso(comune: Comune, sessiSelezionati: string[]): Comune {
+  filtroSesso(
+    comune: Comune,
+    sessiSelezionati: string[],
+    annoMin?: number,
+    annoMax?: number,
+    etaMin?: number,
+    etaMax?: number
+  ): Comune {
     let comuneFiltered: Comune = new Comune();
 
     comuneFiltered.codice = comune.codice;
@@ -63,10 +70,29 @@ export class ComuneService {
 
     for (let i = 0; i < comune.dati.length; i++) {
       for (let j = 0; j < sessiSelezionati.length; j++) {
-        if (sessiSelezionati[j] === comune.dati[i].sesso) {
-          comuneFiltered.dati.push(comune.dati[i]);
+        if (annoMin || annoMax) {
+          if (
+            sessiSelezionati[j] === comune.dati[i].sesso &&
+            comune.dati[i].anno >= annoMin &&
+            comune.dati[i].anno <= annoMax
+          ) {
+            comuneFiltered.dati.push(comune.dati[i]);
+          }
+        } else {
+          if (sessiSelezionati[j] === comune.dati[i].sesso) {
+            comuneFiltered.dati.push(comune.dati[i]);
+          }
         }
       }
+    }
+
+    if (etaMin || etaMax) {
+      comuneFiltered = this.filtroEta(
+        comuneFiltered,
+        sessiSelezionati[0],
+        etaMin,
+        etaMax
+      );
     }
 
     return comuneFiltered;
@@ -123,7 +149,9 @@ export class ComuneService {
 
     for (let i = 0; i < comune.dati.length; i++) {
       if (sesso === comune.dati[i].sesso) {
-        let index = comuneFiltered.dati.push( Object.assign(new DatoStatistico(), comune.dati[i]));
+        let index = comuneFiltered.dati.push(
+          Object.assign(new DatoStatistico(), comune.dati[i])
+        );
         comuneFiltered.dati[index - 1].valori = comuneFiltered.dati[
           index - 1
         ].valori.slice(etaMin, etaMax);

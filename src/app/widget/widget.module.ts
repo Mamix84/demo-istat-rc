@@ -11,9 +11,10 @@ import { SingleLineChartComponent } from './single-line-chart/single-line-chart.
 import { ChartModule } from 'primeng/chart';
 import { Toast, ToastModule } from 'primeng/toast';
 import { Knob, KnobModule } from 'primeng/knob';
-import { GMap, GMapModule} from 'primeng/gmap';
+import { GMap, GMapModule } from 'primeng/gmap';
 import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
 import { SingleBarChartComponent } from './single-bar-chart/single-bar-chart.component';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SingleBarChartComponent } from './single-bar-chart/single-bar-chart.com
     ToastModule,
     KnobModule,
     GMapModule,
+    SliderModule,
   ],
   exports: [
     Dropdown,
@@ -47,7 +49,8 @@ import { SingleBarChartComponent } from './single-bar-chart/single-bar-chart.com
     MultiselectServiceComponent,
     SingleLineChartComponent,
     MultiLineChartComponent,
-    SingleBarChartComponent
+    SingleBarChartComponent,
+    SliderModule,
   ],
 })
 export class WidgetModule {}

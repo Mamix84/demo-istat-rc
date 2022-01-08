@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { of } from 'rxjs';
 import { Indicatori } from 'src/app/enum/indicatori.enum';
 import { Sessi } from 'src/app/enum/sessi.enum';
 import { Comune } from 'src/app/model/comune';
@@ -14,6 +15,9 @@ export class StatisticheComponent implements OnInit {
   maschi: number = 0;
   femmine: number = 0;
   totale: number = 0;
+
+  rangeAnno: number[] = [1982, 2021];
+  rangeEta: number[] = [1, 85];
 
   @Output() storicoComune: Comune;
   comunePopMaschileFiltered: Comune;
@@ -73,5 +77,32 @@ export class StatisticheComponent implements OnInit {
     this.comuneSelezionato = comune;
 
     this.caricaStoricoComune();
+  }
+
+  changeRange(){
+    this.comunePopMaschileFiltered = this.comuneService.filtroSesso(
+      this.storicoComune,
+      [Sessi.MASCHI],
+      this.rangeAnno[0],
+      this.rangeAnno[1],
+      this.rangeEta[0],
+      this.rangeEta[1]
+    );
+    this.comunePopFemminileFiltered = this.comuneService.filtroSesso(
+      this.storicoComune,
+      [Sessi.FEMMINE],
+      this.rangeAnno[0],
+      this.rangeAnno[1],
+      this.rangeEta[0],
+      this.rangeEta[1]
+    );
+    this.comunePopTotaleFiltered = this.comuneService.filtroSesso(
+      this.storicoComune,
+      [Sessi.TOTALE],
+      this.rangeAnno[0],
+      this.rangeAnno[1],
+      this.rangeEta[0],
+      this.rangeEta[1]
+    );
   }
 }
