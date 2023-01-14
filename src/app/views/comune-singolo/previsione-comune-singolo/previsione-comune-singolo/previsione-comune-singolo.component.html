@@ -19,11 +19,13 @@
 </div>
 
 <div class="p-grid" *ngIf="comuneSelezionato != undefined">
-  <div class="p-col-12 p-md-6">
+  <div class="p-col-12 p-md-12">
     <app-single-line-chart [label]="'PREVISIONE (ANDAMENTO ULTIMI 5 ANNI)'" [comune]="pop5AnniPrev" [interpolazione]="false">
     </app-single-line-chart>
   </div>
-  <div class="p-col-12 p-md-6">
+</div>
+<div class="p-grid" *ngIf="comuneSelezionato != undefined">
+  <div class="p-col-12 p-md-12">
     <app-single-line-chart [label]="'PREVISIONE (ANDAMENTO ULTIMI 10 ANNI)'" [comune]="pop10AnniPrev" [interpolazione]="false">
     </app-single-line-chart>
   </div>

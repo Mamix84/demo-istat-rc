@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Dropdown, DropdownModule } from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
-import { Panel, PanelModule } from 'primeng/panel';
-import { Table, TableModule } from 'primeng/table';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
 import { DropdownServiceComponent } from './dropdown-service/dropdown-service.component';
-import { MultiSelect, MultiSelectModule } from 'primeng/multiselect';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { MultiselectServiceComponent } from './multiselect-service/multiselect-service.component';
 import { SingleLineChartComponent } from './single-line-chart/single-line-chart.component';
 import { ChartModule } from 'primeng/chart';
-import { Toast, ToastModule } from 'primeng/toast';
-import { Knob, KnobModule } from 'primeng/knob';
+import { ToastModule } from 'primeng/toast';
+import { KnobModule } from 'primeng/knob';
 import { GMap, GMapModule } from 'primeng/gmap';
 import { MultiLineChartComponent } from './multi-line-chart/multi-line-chart.component';
 import { SingleBarChartComponent } from './single-bar-chart/single-bar-chart.component';
 import { SliderModule } from 'primeng/slider';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [
@@ -36,14 +37,14 @@ import { SliderModule } from 'primeng/slider';
     KnobModule,
     GMapModule,
     SliderModule,
+    ScrollPanelModule
   ],
   exports: [
-    Dropdown,
-    Panel,
-    Table,
-    MultiSelect,
-    Toast,
-    Knob,
+    DropdownModule,
+    PanelModule,
+    MultiSelectModule,
+    ToastModule,
+    KnobModule,
     GMap,
     DropdownServiceComponent,
     MultiselectServiceComponent,
@@ -51,6 +52,8 @@ import { SliderModule } from 'primeng/slider';
     MultiLineChartComponent,
     SingleBarChartComponent,
     SliderModule,
+    ScrollPanelModule,
+    TableModule
   ],
 })
 export class WidgetModule {}

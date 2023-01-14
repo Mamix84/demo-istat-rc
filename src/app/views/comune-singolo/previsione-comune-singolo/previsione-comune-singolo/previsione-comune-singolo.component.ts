@@ -53,7 +53,7 @@ export class PrevisioneComuneSingoloComponent implements OnInit {
         );
         this.pop20AnniPrev = this.statisticheService.calcolaPrevisione(
           this.comune,
-          20
+          38
         );
       });
   }

@@ -70,6 +70,8 @@ export class StatisticheComponent implements OnInit {
           this.storicoComune,
           [Sessi.TOTALE]
         );
+
+        this.changeRange();
       });
   }
 

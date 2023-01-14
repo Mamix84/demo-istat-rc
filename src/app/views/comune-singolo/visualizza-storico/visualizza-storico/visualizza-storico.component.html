@@ -34,9 +34,9 @@
 </div>
 <div class="storico" *ngIf="comuneSelezionato != undefined" style="height: 10px">
   <p-panel header="STORICO RISULTATI">
-    <p-scrollPanel [style]="{ width: '100%', height: '300px' }">
+
       <p-table [value]="storicoComune.dati" styleClass="p-datatable-gridlines p-datatable-striped"
-        [style]="{ width: '100%' }" sortMode="multiple">
+         sortMode="multiple" [scrollable]="true" [style]="{width:'100%'}" scrollHeight="200px">
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="anno">ANNO <p-sortIcon field="anno"></p-sortIcon>
@@ -133,7 +133,7 @@
         <ng-template pTemplate="body" let-comune>
           <tr>
             <td>{{ comune.anno }}</td>
-            <td>{{ comune.tipo }}</td>
+            <td>{{ comune.sesso }}</td>
             <td>{{ comune.valori[0] }}</td>
             <td>{{ comune.valori[1] }}</td>
             <td>{{ comune.valori[2] }}</td>
@@ -224,6 +224,6 @@
         </ng-template>
         <ng-template pTemplate="footer"></ng-template>
       </p-table>
-    </p-scrollPanel>
+
   </p-panel>
 </div>
