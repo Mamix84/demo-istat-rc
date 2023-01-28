@@ -3,12 +3,13 @@ import { Indicatori } from '../enum/indicatori.enum';
 import { Sessi } from '../enum/sessi.enum';
 import { Comune } from '../model/comune';
 import { DatoStatistico } from '../model/dati-statistici';
+import { UtilityService } from './utility.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatisticheService {
-  constructor() {}
+  constructor(private utilityService: UtilityService) {}
 
   calcolaPrevisione(comune: Comune, anni: number): Comune {
     let comuneFiltered: Comune = new Comune();
@@ -58,9 +59,7 @@ export class StatisticheService {
 
         forecastPopolazione = Math.round(forecastPopolazione);
 
-        valori.push(
-          forecastPopolazione < 0 ? 0 : forecastPopolazione
-        );
+        valori.push(forecastPopolazione < 0 ? 0 : forecastPopolazione);
       }
 
       datoDaAggiungere.valori = valori;
@@ -69,5 +68,54 @@ export class StatisticheService {
     }
 
     return comuneFiltered;
+  }
+
+  tassoNatalita(comune: Comune): Comune {
+    let comuneTasso = new Comune();
+    comuneTasso.codice = comune.codice;
+    comuneTasso.denominazione = comune.denominazione;
+    comuneTasso.dati = [];
+
+    for (let i = 0; i < comune.dati.length; i++) {
+      if (Sessi.TOTALE === comune.dati[i].sesso) {
+        comuneTasso.dati.push(
+          Object.assign(new DatoStatistico(), comune.dati[i])
+        );
+      }
+    }
+
+    for (let j = 1; j < comuneTasso.dati.length; j++) {
+      let valoriTasso = [];
+      let tasso =
+        (comune.dati[j].valori[0] /
+          ((this.utilityService.sommatoria(comune.dati[j].valori) +
+            this.utilityService.sommatoria(comune.dati[j - 1].valori))/2)) *
+        1000;
+
+      let tassoStr = tasso.toFixed(2);
+      valoriTasso.push(Number.parseFloat(tassoStr));
+      comuneTasso.dati[j].valori = valoriTasso;
+    }
+
+    comuneTasso.dati = comuneTasso.dati.slice(1);
+
+    return comuneTasso;
+  }
+
+  tassoFertilita(comune: Comune): Comune {
+    let comuneTasso = new Comune();
+    comuneTasso.codice = comune.codice;
+    comuneTasso.denominazione = comune.denominazione;
+    comuneTasso.dati = [];
+
+    for (let i = 0; i < comune.dati.length; i++) {
+      if (Sessi.TOTALE === comune.dati[i].sesso) {
+        comuneTasso.dati.push(
+          Object.assign(new DatoStatistico(), comune.dati[i])
+        );
+      }
+    }
+
+    return comuneTasso;
   }
 }

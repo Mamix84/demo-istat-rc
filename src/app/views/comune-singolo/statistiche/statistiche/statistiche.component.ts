@@ -4,6 +4,7 @@ import { Indicatori } from 'src/app/enum/indicatori.enum';
 import { Sessi } from 'src/app/enum/sessi.enum';
 import { Comune } from 'src/app/model/comune';
 import { ComuneService } from 'src/app/services/comune.service';
+import { StatisticheService } from 'src/app/services/statistiche.service';
 
 @Component({
   selector: 'app-statistiche',
@@ -16,20 +17,25 @@ export class StatisticheComponent implements OnInit {
   femmine: number = 0;
   totale: number = 0;
 
-  rangeAnno: number[] = [1982, 2021];
+  rangeAnno: number[] = [1982, 2022];
   rangeEta: number[] = [1, 85];
 
   @Output() storicoComune: Comune;
   comunePopMaschileFiltered: Comune;
   comunePopFemminileFiltered: Comune;
   comunePopTotaleFiltered: Comune;
+  comuneTassoFertilitaFiltered: Comune;
+  comuneTassoNatalitaFiltered: Comune;
 
   menuItem = [
     { label: 'STATISTICHE POPOLAZIONE - COMUNI SINGOLI' },
     { label: 'STATISTICHE' },
   ];
 
-  constructor(private comuneService: ComuneService) {
+  constructor(
+    private comuneService: ComuneService,
+    private statisticheService: StatisticheService
+  ) {
     this.storicoComune = new Comune();
     this.storicoComune.dati = [];
   }
@@ -70,6 +76,10 @@ export class StatisticheComponent implements OnInit {
           this.storicoComune,
           [Sessi.TOTALE]
         );
+        this.comuneTassoFertilitaFiltered =
+          this.statisticheService.tassoFertilita(this.storicoComune);
+        this.comuneTassoNatalitaFiltered =
+          this.statisticheService.tassoNatalita(this.storicoComune);
 
         this.changeRange();
       });
@@ -81,7 +91,7 @@ export class StatisticheComponent implements OnInit {
     this.caricaStoricoComune();
   }
 
-  changeRange(){
+  changeRange() {
     this.comunePopMaschileFiltered = this.comuneService.filtroSesso(
       this.storicoComune,
       [Sessi.MASCHI],
@@ -105,6 +115,12 @@ export class StatisticheComponent implements OnInit {
       this.rangeAnno[1],
       this.rangeEta[0],
       this.rangeEta[1]
+    );
+    this.comuneTassoFertilitaFiltered = this.statisticheService.tassoFertilita(
+      this.storicoComune
+    );
+    this.comuneTassoNatalitaFiltered = this.statisticheService.tassoNatalita(
+      this.storicoComune
     );
   }
 }

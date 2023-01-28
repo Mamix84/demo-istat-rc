@@ -25,7 +25,7 @@
             [range]="true"
             [step]="1"
             [min]="1982"
-            [max]="2021"
+            [max]="2022"
             (onChange)="changeRange()"
           ></p-slider>
         </div>
@@ -95,12 +95,14 @@
         <div class="p-col-12 p-md-6">
           <app-single-line-chart
             [label]="'INDICE FERTILITA'"
+            [comune]="comuneTassoFertilitaFiltered"
             [interpolazione]="true"
           ></app-single-line-chart>
         </div>
         <div class="p-col-12 p-md-6">
           <app-single-line-chart
             [label]="'TASSO NATALITA'"
+            [comune]="comuneTassoNatalitaFiltered"
             [interpolazione]="true"
           ></app-single-line-chart>
         </div>
