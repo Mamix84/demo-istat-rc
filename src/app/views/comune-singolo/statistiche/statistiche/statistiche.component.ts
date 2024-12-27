@@ -17,7 +17,7 @@ export class StatisticheComponent implements OnInit {
   femmine: number = 0;
   totale: number = 0;
 
-  rangeAnno: number[] = [1982, 2022];
+  rangeAnno: number[] = [1982, 2023];
   rangeEta: number[] = [1, 85];
 
   @Output() storicoComune: Comune;
