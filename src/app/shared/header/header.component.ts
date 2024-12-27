@@ -94,6 +94,11 @@ export class HeaderComponent implements OnInit {
             icon: 'pi pi-chart-line',
             routerLink: ['/grafici-popolazione-area'],
           },
+          {
+            label: 'STATISTICHE',
+            icon: 'pi pi-list',
+            routerLink: ['/statistiche-popolazione-area'],
+          },          
         ],
       },
     ];

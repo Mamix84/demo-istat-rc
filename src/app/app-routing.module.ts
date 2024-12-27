@@ -11,6 +11,7 @@ import { EtaScolarePopolazioneMultipliComponent } from './views/comuni-multipli/
 import { GraficiPopolazioneMultipliComponent } from './views/comuni-multipli/grafici-popolazione-multipli/grafici-popolazione-multipli/grafici-popolazione-multipli.component';
 import { StatistichePopolazioneMultipliComponent } from './views/comuni-multipli/statistiche-popolazione-multipli/statistiche-popolazione-multipli/statistiche-popolazione-multipli.component';
 import { HomeComponent } from './views/home/home/home.component';
+import { StatistichePopolazioneAreaComponent } from './views/aree/statistiche-popolazione-area/statistiche-popolazione-area/statistiche-popolazione-area/statistiche-popolazione-area.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
     path: 'grafici-popolazione-area',
     component: GraficiPopolazioneAreaComponent,
   },
+  {
+    path: 'statistiche-popolazione-area',
+    component: StatistichePopolazioneAreaComponent,
+  },  
   {
     path: 'andamento-demografico-comune-singolo',
     component: AndamentoDemograficoComuneSingoloComponent

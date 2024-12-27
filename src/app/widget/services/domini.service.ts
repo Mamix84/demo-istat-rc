@@ -34,6 +34,14 @@ export class DominiService {
         path = 'aree';
         break;
       }
+      case 'ANNO INIZIO': {
+        path = 'anno_inizio';
+        break;
+      }  
+      case 'ANNO FINE': {
+        path = 'anno_fine';
+        break;
+      }             
     }
 
     return this.http
