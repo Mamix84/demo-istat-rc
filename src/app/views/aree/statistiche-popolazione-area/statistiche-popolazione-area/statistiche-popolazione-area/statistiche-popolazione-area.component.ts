@@ -16,7 +16,7 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
 
   menuItem = [{ label: 'STATISTICHE AREA' }, { label: 'STATISTICHE POPOLAZIONE' }];
 
-  rangeAnno: number[] = [1982, 2023];
+  rangeAnno: number[] = [1982, 2019];
   aree: Dominio[];
   storicoComune: Comune;
   statisticheAree: any[];
@@ -120,7 +120,7 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
           'popolazioneStart': sommaStart,
           'popolazioneEnd': sommaEnd,
           'delta': sommaEnd - sommaStart,
-          'deltaPerc': Number.parseFloat(((sommaEnd - sommaStart) / sommaEnd * 100)+"").toPrecision(3)
+          'deltaPerc': Number.parseFloat(((sommaEnd - sommaStart) / sommaStart * 100)+"").toPrecision(3)
         };
 
         this.statisticheAree[indiceArea] = {
@@ -128,13 +128,13 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
           'popolazioneStart': this.popolazioneStart[indiceArea],
           'popolazioneEnd': this.popolazioneEnd[indiceArea],
           'delta': this.popolazioneEnd[indiceArea] - this.popolazioneStart[indiceArea],
-          'deltaPerc': Number.parseFloat(((this.popolazioneEnd[indiceArea] - this.popolazioneStart[indiceArea]) / this.popolazioneEnd[indiceArea] * 100)+"").toPrecision(3)
+          'deltaPerc': Number.parseFloat(((this.popolazioneEnd[indiceArea] - this.popolazioneStart[indiceArea]) / this.popolazioneStart[indiceArea] * 100)+"").toPrecision(3)
         };
 
         let popolazioneStartTotale : number = this.popolazioneStart[0] + this.popolazioneStart[1] + this.popolazioneStart[2] + this.popolazioneStart[3];
         let popolazioneEndTotale : number= this.popolazioneEnd[0] + this.popolazioneEnd[1] + this.popolazioneEnd[2] + this.popolazioneEnd[3];
         let deltaTotale : number = popolazioneEndTotale - popolazioneStartTotale;
-        let deltaPercTotale : number = deltaTotale / popolazioneEndTotale * 100;
+        let deltaPercTotale : number = deltaTotale / popolazioneStartTotale * 100;
         this.statisticheAree[4] = {
           'descrizione': 'Totali',
           'popolazioneStart': popolazioneStartTotale,
