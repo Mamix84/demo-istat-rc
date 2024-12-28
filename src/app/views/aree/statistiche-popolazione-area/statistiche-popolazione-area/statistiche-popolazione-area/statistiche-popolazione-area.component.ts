@@ -23,6 +23,8 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
   popolazioneStart = [];
   popolazioneEnd = [];
 
+  statisticheComuni: any[];
+
   constructor(
     private comuneService: ComuneService,
     private dominiService: DominiService,
@@ -56,12 +58,13 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
       let response: any = data;
 
       this.statisticheAree = [];
+      this.statisticheComuni = [];
 
       for (let k = 0; k < this.aree.length; k++) {
         for (let i = 0; i < response.listaDominio.length; i++) {
           let comuneTemp: Comune = response.listaDominio[i];
           if (comuneTemp.area === this.aree[k].codice) {
-            this.caricaStoricoComune(comuneTemp.codice, k);
+            this.caricaStoricoComune(comuneTemp.codice, k, i);
           }
         }
       }
@@ -69,7 +72,7 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
 
   }
 
-  caricaStoricoComune(comuneSelezionato: string, indiceArea: number) {
+  caricaStoricoComune(comuneSelezionato: string, indiceArea: number, indiceComune: number) {
     this.comuneService
       .caricaDati(comuneSelezionato, Indicatori.POPOLAZIONE)
       .then((data) => {
@@ -77,7 +80,7 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
         let storicoComuneTemp: Comune = response;
 
         this.storicoComune.codice = storicoComuneTemp.codice;
-        this.storicoComune.denominazione = this.storicoComune.denominazione;
+        this.storicoComune.denominazione = storicoComuneTemp.denominazione;
         this.storicoComune.dati = [];
 
         for (let i = 0; i < storicoComuneTemp.dati.length; i++) {
@@ -89,27 +92,36 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
         // POPOLAZIONE START
         let totali: any[];
         totali = [];
+        let sommaStart = 0;
         for (let i = 0; i < this.storicoComune.dati.length; i++) {
-          if (this.storicoComune.dati[i].sesso === Sessi.TOTALE && this.storicoComune.dati[i].anno === this.rangeAnno[0]) {
-            let somma = 0;
+          if (this.storicoComune.dati[i].sesso === Sessi.TOTALE && this.storicoComune.dati[i].anno === this.rangeAnno[0]) {            
             for (let j = 0; j < this.storicoComune.dati[i].valori.length; j++) {
-              somma += this.storicoComune.dati[i].valori[j];
+              sommaStart += this.storicoComune.dati[i].valori[j];
             }
-            this.popolazioneStart[indiceArea] = this.popolazioneStart[indiceArea] + somma;
+            this.popolazioneStart[indiceArea] = this.popolazioneStart[indiceArea] + sommaStart;
           }
         }
 
         // POPOLAZIONE END
         totali = [];
+        let sommaEnd = 0;
         for (let i = 0; i < this.storicoComune.dati.length; i++) {
-          if (this.storicoComune.dati[i].sesso === Sessi.TOTALE && this.storicoComune.dati[i].anno === this.rangeAnno[1]) {
-            let somma = 0;
+          if (this.storicoComune.dati[i].sesso === Sessi.TOTALE && this.storicoComune.dati[i].anno === this.rangeAnno[1]) {            
             for (let j = 0; j < this.storicoComune.dati[i].valori.length; j++) {
-              somma += this.storicoComune.dati[i].valori[j];
+              sommaEnd += this.storicoComune.dati[i].valori[j];
             }
-            this.popolazioneEnd[indiceArea] = this.popolazioneEnd[indiceArea] + somma;
+            this.popolazioneEnd[indiceArea] = this.popolazioneEnd[indiceArea] + sommaEnd;
           }
         }
+
+        this.statisticheComuni[indiceComune] = {
+          'area': this.aree[indiceArea].denominazione,
+          'descrizione': this.storicoComune.denominazione,
+          'popolazioneStart': sommaStart,
+          'popolazioneEnd': sommaEnd,
+          'delta': sommaEnd - sommaStart,
+          'deltaPerc': Number.parseFloat(((sommaEnd - sommaStart) / sommaEnd * 100)+"").toPrecision(3)
+        };
 
         this.statisticheAree[indiceArea] = {
           'descrizione': this.aree[indiceArea].denominazione,

@@ -1,53 +1,82 @@
 <div class="p-grid">
-    <div class="p-col">
-        <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
-    </div>
+  <div class="p-col">
+    <app-breadcrumb [items]="this.menuItem"></app-breadcrumb>
+  </div>
 </div>
 
 <div class="p-grid">
-    <div class="p-col">
-      <p-panel header="FILTRI DI RICERCA">
-        <div class="p-grid">
-          <div class="p-col">
-            <app-dropdown-service [label]="'ANNO INIZIO'" [placeholder]="'SELEZIONA ANNO INIZIALE'"
-              (itemSelezionatoEvent)="annoSelezionatoStart($event)">
-            </app-dropdown-service>
-          </div>
-          <div class="p-col">
-            <app-dropdown-service [label]="'ANNO FINE'" [placeholder]="'SELEZIONA ANNO FINALE'"
-              (itemSelezionatoEvent)="annoSelezionatoEnd($event)">
-            </app-dropdown-service>
-          </div>
+  <div class="p-col">
+    <p-panel header="FILTRI DI RICERCA">
+      <div class="p-grid">
+        <div class="p-col">
+          <app-dropdown-service [label]="'ANNO INIZIO'" [placeholder]="'SELEZIONA ANNO INIZIALE'"
+            (itemSelezionatoEvent)="annoSelezionatoStart($event)">
+          </app-dropdown-service>
         </div>
-      </p-panel>
-    </div>
+        <div class="p-col">
+          <app-dropdown-service [label]="'ANNO FINE'" [placeholder]="'SELEZIONA ANNO FINALE'"
+            (itemSelezionatoEvent)="annoSelezionatoEnd($event)">
+          </app-dropdown-service>
+        </div>
+      </div>
+    </p-panel>
   </div>
+</div>
 
 <div>
-    <p-panel header="STATISTICHE AREE">
+  <p-panel header="STATISTICHE AREE">
+    <p-table [value]="statisticheAree" styleClass="p-datatable-gridlines p-datatable-striped" sortMode="multiple"
+      [scrollable]="true" [style]="{width:'100%'}" scrollHeight="300px">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>AREA</th>
+          <th>POPOLAZIONE AL {{rangeAnno[0]}}</th>
+          <th>POPOLAZIONE AL {{rangeAnno[1]}}</th>
+          <th>DELTA POPOLAZIONE</th>
+          <th>DELTA POPOLAZIONE %</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-area>
+        <tr>
+          <td>{{ area.descrizione }}</td>
+          <td>{{ area.popolazioneStart }}</td>
+          <td>{{ area.popolazioneEnd }}</td>
+          <td>{{ area.delta }}</td>
+          <td>{{ area.deltaPerc }} %</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer"></ng-template>
+    </p-table>
 
-        <p-table [value]="statisticheAree" styleClass="p-datatable-gridlines p-datatable-striped" sortMode="multiple"
-            [scrollable]="true" [style]="{width:'100%'}" scrollHeight="300px">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>AREA</th>
-                    <th>POPOLAZIONE AL {{rangeAnno[0]}}</th>
-                    <th>POPOLAZIONE AL {{rangeAnno[1]}}</th>
-                    <th>DELTA POPOLAZIONE</th>
-                    <th>DELTA POPOLAZIONE %</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-area>
-                <tr>
-                    <td>{{ area.descrizione }}</td>
-                    <td>{{ area.popolazioneStart }}</td>
-                    <td>{{ area.popolazioneEnd }}</td>
-                    <td>{{ area.delta }}</td>
-                    <td>{{ area.deltaPerc }} %</td>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="footer"></ng-template>
-        </p-table>
+  </p-panel>
+</div>
 
-    </p-panel>
+<div>
+  <p-panel header="STATISTICHE COMUNI">
+    <p-table [value]="statisticheComuni" styleClass="p-datatable-gridlines p-datatable-striped" sortMode="multiple"
+      [scrollable]="true" [style]="{width:'100%'}" scrollHeight="300px">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>AREA</th>
+          <th>COMUNE</th>
+          <th>POPOLAZIONE AL {{rangeAnno[0]}}</th>
+          <th>POPOLAZIONE AL {{rangeAnno[1]}}</th>
+          <th>DELTA POPOLAZIONE</th>
+          <th>DELTA POPOLAZIONE %</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-comune>
+        <tr>
+          <td>{{ comune.area }}</td>
+          <td>{{ comune.descrizione }}</td>
+          <td>{{ comune.popolazioneStart }}</td>
+          <td>{{ comune.popolazioneEnd }}</td>
+          <td>{{ comune.delta }}</td>
+          <td>{{ comune.deltaPerc }} %</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="footer"></ng-template>
+    </p-table>
+
+  </p-panel>
 </div>
