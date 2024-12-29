@@ -16,7 +16,7 @@ export class StatistichePopolazioneAreaComponent implements OnInit {
 
   menuItem = [{ label: 'STATISTICHE AREA' }, { label: 'STATISTICHE POPOLAZIONE' }];
 
-  rangeAnno: number[] = [1982, 2019];
+  rangeAnno: number[] = [1982, 2024];
   aree: Dominio[];
   storicoComune: Comune;
   statisticheAree: any[];
