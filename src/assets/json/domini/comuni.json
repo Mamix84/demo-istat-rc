@@ -107,7 +107,7 @@
 		{
 			"codice": "BRA14",
 			"denominazione": "Brancaleone",
-			"area": "G",
+			"area": "L",
 			"latitudine": 0.0,
 			"longitudine": 0.0,
 			"altezza": 0
@@ -643,7 +643,7 @@
 		{
 			"codice": "SAN81",
 			"denominazione": "Sant'Eufemia d'Aspromonte",
-			"area": "R",
+			"area": "P",
 			"latitudine": 0.0,
 			"longitudine": 0.0,
 			"altezza": 0

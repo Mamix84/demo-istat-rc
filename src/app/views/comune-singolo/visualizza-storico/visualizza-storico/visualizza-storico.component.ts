@@ -36,7 +36,7 @@ export class VisualizzaStoricoComponent implements OnInit {
 
     // ANNI
     this.anni.push({ label: 'NESSUN FILTRO', value: undefined });
-    for (let i = 1982; i < 2021; i++) {
+    for (let i = 1982; i < 2025; i++) {
       this.anni.push({ label: i + '', value: i + '' });
     }
   }

@@ -163,6 +163,10 @@
       {
           "codice": "2023",
           "denominazione": "2023"
-      }                                  
+      },               
+      {
+          "codice": "2024",
+          "denominazione": "2024"
+      }                                      
   ]
 }
