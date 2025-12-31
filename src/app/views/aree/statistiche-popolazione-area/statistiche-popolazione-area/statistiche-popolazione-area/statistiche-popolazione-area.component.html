@@ -41,8 +41,8 @@
           <td>{{ area.descrizione }}</td>
           <td>{{ area.popolazioneStart }}</td>
           <td>{{ area.popolazioneEnd }}</td>
-          <td>{{ area.delta }}</td>
-          <td>{{ area.deltaPerc }} %</td>
+          <td [ngStyle]="{'color': area.delta < 0 ? 'red' : 'darkgreen'}">{{ area.delta }}</td>
+          <td [ngStyle]="{'color': area.deltaPerc < 0 ? 'red' : 'darkgreen'}">{{ area.deltaPerc }} %</td>
         </tr>
       </ng-template>
       <ng-template pTemplate="footer"></ng-template>
@@ -71,8 +71,8 @@
           <td>{{ comune.descrizione }}</td>
           <td>{{ comune.popolazioneStart }}</td>
           <td>{{ comune.popolazioneEnd }}</td>
-          <td>{{ comune.delta }}</td>
-          <td>{{ comune.deltaPerc }} %</td>
+          <td [ngStyle]="{'color': comune.delta < 0 ? 'red' : 'darkgreen'}">{{ comune.delta }}</td>
+          <td [ngStyle]="{'color': comune.deltaPerc < 0 ? 'red' : 'darkgreen'}">{{ comune.deltaPerc }} %</td>
         </tr>
       </ng-template>
       <ng-template pTemplate="footer"></ng-template>
